@@ -1,3 +1,4 @@
+@@ -1,209 +1,209 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -94,100 +95,16 @@ nav a:hover{
     border-left:5px solid var(--accent2);
 }
 
-/* FOOTER (CORREGIDO TOTAL) */
+/* ===== FOOTER ===== */
 footer{
-    background:#050f28;
-    padding:50px 20px;
+    background:rgba(0,0,0,0.85);
     text-align:center;
-    margin-top:auto;
-    border-top:2px solid var(--cyan);
+    padding:25px;
 }
-
-footer h2{
-    color:var(--cyan);
-    margin-bottom:10px;
-}
-
-footer p{
-    margin:6px 0;
-    font-size:14px;
-    opacity:0.9;
-}
-
 footer a{
-    color:var(--cyan);
-    text-decoration:none;
+    color:var(--accent);
 }
 
-footer a:hover{
-    text-decoration:underline;
-}
-
-.social{
-    margin:15px 0;
-}
-
-.social a{
-    display:inline-block;
-    margin:0 10px;
-    font-size:22px;
-    transition:.3s;
-}
-
-.social a:hover{
-    transform:scale(1.2);
-    color:#00ff9d;
-}
-
-.copy{
-    margin-top:15px;
-    font-size:13px;
-    opacity:0.7;
-}
-
-/* IDIOMA */
-.lang-switch{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-}
-
-.lang-btn{
-    background:var(--blue-main);
-    padding:10px 15px;
-    border-radius:10px;
-    cursor:pointer;
-}
-
-.lang-dropdown{
-    display:none;
-    flex-direction:column;
-    background:var(--blue-main);
-    margin-bottom:10px;
-    border-radius:10px;
-}
-
-.lang-dropdown a{
-    padding:10px;
-    color:white;
-    text-decoration:none;
-}
-
-.lang-dropdown a:hover{
-    background:var(--cyan);
-    color:black;
-}
-
-.show{
-    display:flex;
-}
-
-/* RESPONSIVE */
-@media(max-width:600px){
-    nav{
-        gap:8px;
-    }
-}
 /* ===== ANIMACIONES ===== */
 .fade{
     opacity:0;
@@ -273,8 +190,6 @@ footer a:hover{
 <h2>Contacto Eco Wave</h2>
 <p>contacto@ecowave.org</p>
 </footer>
-
-<!-- JAVASCRIPT NO MOVER -->
 
 <script>
 const elementos=document.querySelectorAll('.fade');
