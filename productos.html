@@ -1,35 +1,282 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos</title>
-    <style>
-        footer {
-            padding: 15px 25px;
-        }
-        footer h2 {
-            margin: 0;
-            font-size: 18px;
-        }
-        footer p {
-            margin: 5px 0;
-            font-size: 14px;
-        }
-        .social a {
-            font-size: 18px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECO WAVE</title>
+
+<style>
+
+/* ===== NUEVO ESTILO AZUL ===== */
+:root{
+    --blue-main:#0f8aa6;
+    --blue-dark:#081c3a;
+    --cyan:#00e5ff;
+    --bg-glass:rgba(10,15,40,0.6);
+    --card:rgba(25,40,90,0.7);
+    --text:#e6f7ff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    color:var(--text);
+    background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.85)),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')
+    center/cover fixed;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(120deg,var(--blue-dark),var(--blue-main));
+    text-align:center;
+    padding:30px;
+}
+
+/* NAV */
+nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    background:var(--bg-glass);
+    padding:12px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:6px 12px;
+    border-radius:6px;
+    transition:.3s;
+}
+
+nav a:hover{
+    background:var(--cyan);
+    color:black;
+}
+
+/* CONTENIDO */
+.section{
+    max-width:1000px;
+    margin:30px auto;
+    background:var(--bg-glass);
+    padding:25px;
+    border-radius:12px;
+    opacity:0;
+    transform:translateY(40px);
+    transition:.6s;
+}
+
+.section.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.section h2{
+    color:var(--cyan);
+    margin-bottom:10px;
+}
+
+/* TABLA */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+    background:white;
+    color:black;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+thead{
+    background:var(--cyan);
+}
+
+th,td{
+    padding:10px;
+}
+
+tbody tr:hover{
+    background:#f1f1f1;
+}
+
+/* FOOTER */
+footer{
+    background:rgba(0,0,0,.85);
+    text-align:center;
+    padding:25px;
+    margin-top:30px;
+}
+
+footer a{
+    color:var(--cyan);
+}
+
+.social a{
+    margin:0 8px;
+    font-size:20px;
+}
+
+/* LANG */
+.lang-switch{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+}
+
+.lang-btn{
+    background:var(--blue-main);
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.lang-dropdown{
+    display:none;
+    flex-direction:column;
+    background:var(--blue-main);
+    margin-bottom:10px;
+    border-radius:10px;
+}
+
+.lang-dropdown a{
+    padding:10px;
+    color:white;
+    text-decoration:none;
+}
+
+.lang-dropdown a:hover{
+    background:var(--cyan);
+    color:black;
+}
+
+.show{
+    display:flex;
+}
+
+</style>
 </head>
+
 <body>
-    <h1>Bienvenido a nuestros productos</h1>
-    <footer>
-        <h2>Contacto</h2>
-        <p>Teléfono: (123) 456-7890</p>
-        <div class="social">
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-        </div>
-    </footer>
+
+<header class="fade">
+<h1>ECO WAVE 🌊</h1>
+<p>Innovación, energía y sostenibilidad para un futuro verde</p>
+</header>
+
+<nav>
+<a href="nosotros.html">Quiénes Somos</a>
+<a href="nosotros.html">Misión</a>
+<a href="nosotros.html">Valores</a>
+<a href="foda.html">FODA</a>
+<a href="productos.html">Productos Eco</a>
+<a href="index.html">Enlaces</a>
+<a href="index.html">Contacto</a>
+</nav>
+
+<section class="section" id="productos">
+<h2>Productos Eco-amigables</h2>
+<p>Explora algunos productos sostenibles que ayudan a reducir el impacto ambiental:</p>
+
+<table>
+<thead>
+<tr>
+<th>Producto</th>
+<th>Descripción</th>
+<th>Precio</th>
+<th>Enlace</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Bombilla LED Solar</td>
+<td>Recargable con energía solar.</td>
+<td>≈ $63 MXN</td>
+<td><a href="#">Disponible pronto</a></td>
+</tr>
+
+<tr>
+<td>Panel Solar Portátil</td>
+<td>Ideal para camping o uso doméstico.</td>
+<td>≈ $357 MXN</td>
+<td><a href="#">Disponible pronto</a></td>
+</tr>
+
+<tr>
+<td>PowerBank solar</td>
+<td>Ideal para camping o eventos al aire libre</td>
+<td>≈ $629 MXN</td>
+<td><a href="#">Disponible pronto</a></td>
+</tr>
+
+<tr>
+<td>Ventilador Solar Portátil</td>
+<td>Funciona con panel solar para uso en exteriores.</td>
+<td>≈ $220 MXN</td>
+<td><a href="#">Disponible pronto</a></td>
+</tr>
+
+<tr>
+<td>Reloj Solar Digital</td>
+<td>Funciona con energía solar y batería interna.</td>
+<td>≈ $150 MXN</td>
+<td><a href="#">Disponible pronto</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<!-- IDIOMA -->
+<div class="lang-switch">
+<div class="lang-btn" onclick="toggleLang()">🌐 Idioma</div>
+
+<div class="lang-dropdown" id="langMenu">
+<a href="?lang=es">Español</a>
+<a href="?lang=en">English</a>
+</div>
+</div>
+
+<footer>
+<h2>Contacto Eco Wave</h2>
+<p>🌍 <a href="mailto:contacto@ecowave.org">contacto@ecowave.org</a></p>
+<p>📞 +57 300 608 7138</p>
+
+<div class="social">
+<a href="https://www.instagram.com/_ecowave_3107/" target="_blank">📸</a>
+<a href="https://www.youtube.com/watch?v=PsDY2WgvdCk" target="_blank">🎥</a>
+<a href="#">🌐</a>
+</div>
+
+<p>© 2025 ECO WAVE | Energía Renovable y Educación Ambiental</p>
+</footer>
+
+<script>
+
+/* ANIMACIÓN SCROLL */
+const sections = document.querySelectorAll('.section');
+
+const mostrar = () => {
+    sections.forEach(sec=>{
+        const top = sec.getBoundingClientRect().top;
+        if(top < window.innerHeight - 80){
+            sec.classList.add('visible');
+        }
+    });
+};
+
+window.addEventListener('scroll', mostrar);
+window.addEventListener('load', mostrar);
+
+/* MENÚ IDIOMA */
+function toggleLang(){
+    document.getElementById('langMenu').classList.toggle('show');
+}
+
+</script>
+
 </body>
 </html>
