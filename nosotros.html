@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosotros</title>
+
+<style>
+body{margin:0;font-family:Segoe UI;background:#272F7A;color:white;}
+
+nav{text-align:center;padding:10px;}
+nav a{color:white;margin:10px;}
+
+.card{background:#35439C;margin:15px;padding:20px;border-left:6px solid #00F0FF;}
+
+footer{background:#000;padding:20px;text-align:center;}
+footer a{color:#00F0FF;}
+
+.fade{opacity:0;transform:translateY(40px);visibility:hidden;}
+.fade.show{opacity:1;transform:translateY(0);visibility:visible;transition:.8s;}
+
+@media(max-width:768px){
+nav a{display:block;margin:5px;}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="fade">
+<a href="index.html">Inicio</a>
+<a href="nosotros.html">Nosotros</a>
+<a href="productos.html">Productos</a>
+<a href="foda.html">FODA</a>
+</nav>
+
+<div class="card fade">
+<h2>¿Quiénes somos?</h2>
+<p>Eco Wave promueve energías limpias.</p>
+</div>
+
+<footer class="fade">
+<h2>Contacto Eco Wave</h2>
+<p>🌍 Email: <a href="mailto:contacto@ecowave.org">contacto@ecowave.org</a></p>
+<p>📞 Teléfono: +57 300 608 7138</p>
+</footer>
+
+<script>
+const e=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{e.forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight-100){el.classList.add('show')}})});
+window.addEventListener('load',()=>{e.forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight-100){el.classList.add('show')}})});
+</script>
+
+</body>
+</html>
