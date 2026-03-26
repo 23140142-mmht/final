@@ -7,17 +7,21 @@
 
 <style>
 
-/* ===== NUEVO ESTILO AZUL ===== */
+/* ===== BASE ===== */
 :root{
     --blue-main:#0f8aa6;
     --blue-dark:#081c3a;
     --cyan:#00e5ff;
-    --bg-glass:rgba(10,15,40,0.6);
-    --card:rgba(25,40,90,0.7);
+    --bg:#050f28;
+    --glass:rgba(10,15,40,0.7);
     --text:#e6f7ff;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
+
+html{
+    background:var(--bg);
+}
 
 body{
     font-family:'Segoe UI',sans-serif;
@@ -26,6 +30,10 @@ body{
     linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.85)),
     url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')
     center/cover fixed;
+    
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
 }
 
 /* HEADER */
@@ -41,7 +49,7 @@ nav{
     justify-content:center;
     flex-wrap:wrap;
     gap:15px;
-    background:var(--bg-glass);
+    background:var(--glass);
     padding:12px;
 }
 
@@ -62,9 +70,10 @@ nav a:hover{
 .section{
     max-width:1000px;
     margin:30px auto;
-    background:var(--bg-glass);
+    background:var(--glass);
     padding:25px;
     border-radius:12px;
+
     opacity:0;
     transform:translateY(40px);
     transition:.6s;
@@ -103,24 +112,58 @@ tbody tr:hover{
     background:#f1f1f1;
 }
 
-/* FOOTER */
+/* FOOTER (CORREGIDO TOTAL) */
 footer{
-    background:rgba(0,0,0,.85);
+    background:#050f28;
+    padding:50px 20px;
     text-align:center;
-    padding:25px;
-    margin-top:30px;
+    margin-top:auto;
+    border-top:2px solid var(--cyan);
+}
+
+footer h2{
+    color:var(--cyan);
+    margin-bottom:10px;
+}
+
+footer p{
+    margin:6px 0;
+    font-size:14px;
+    opacity:0.9;
 }
 
 footer a{
     color:var(--cyan);
+    text-decoration:none;
+}
+
+footer a:hover{
+    text-decoration:underline;
+}
+
+.social{
+    margin:15px 0;
 }
 
 .social a{
-    margin:0 8px;
-    font-size:20px;
+    display:inline-block;
+    margin:0 10px;
+    font-size:22px;
+    transition:.3s;
 }
 
-/* LANG */
+.social a:hover{
+    transform:scale(1.2);
+    color:#00ff9d;
+}
+
+.copy{
+    margin-top:15px;
+    font-size:13px;
+    opacity:0.7;
+}
+
+/* IDIOMA */
 .lang-switch{
     position:fixed;
     bottom:20px;
@@ -157,12 +200,19 @@ footer a{
     display:flex;
 }
 
+/* RESPONSIVE */
+@media(max-width:600px){
+    nav{
+        gap:8px;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<header class="fade">
+<header>
 <h1>ECO WAVE 🌊</h1>
 <p>Innovación, energía y sostenibilidad para un futuro verde</p>
 </header>
@@ -177,7 +227,7 @@ footer a{
 <a href="index.html">Contacto</a>
 </nav>
 
-<section class="section" id="productos">
+<section class="section">
 <h2>Productos Eco-amigables</h2>
 <p>Explora algunos productos sostenibles que ayudan a reducir el impacto ambiental:</p>
 
@@ -251,27 +301,25 @@ footer a{
 <a href="#">🌐</a>
 </div>
 
-<p>© 2025 ECO WAVE | Energía Renovable y Educación Ambiental</p>
+<p class="copy">© 2025 ECO WAVE | Energía Renovable y Educación Ambiental</p>
 </footer>
 
 <script>
 
-/* ANIMACIÓN SCROLL */
-const sections = document.querySelectorAll('.section');
+/* ANIMACIÓN */
+const section = document.querySelector('.section');
 
-const mostrar = () => {
-    sections.forEach(sec=>{
-        const top = sec.getBoundingClientRect().top;
-        if(top < window.innerHeight - 80){
-            sec.classList.add('visible');
-        }
-    });
-};
+function mostrar(){
+    const top = section.getBoundingClientRect().top;
+    if(top < window.innerHeight - 80){
+        section.classList.add('visible');
+    }
+}
 
 window.addEventListener('scroll', mostrar);
 window.addEventListener('load', mostrar);
 
-/* MENÚ IDIOMA */
+/* IDIOMA */
 function toggleLang(){
     document.getElementById('langMenu').classList.toggle('show');
 }
