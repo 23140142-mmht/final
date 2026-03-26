@@ -6,19 +6,12 @@
 <title>ECO WAVE</title>
 
 <style>
-
-/* ===== VARIABLES PRO ===== */
 :root{
     --accent:#00F0FF;
     --accent2:#00ff9d;
     --card-bg: rgba(20,30,80,0.65);
     --glass: rgba(0,0,0,0.45);
     --text:#EAF4FF;
-}
-
-/* ===== GLOBAL ===== */
-html{
-    scroll-behavior:smooth;
 }
 
 body{
@@ -31,95 +24,67 @@ body{
     no-repeat center/cover fixed;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 header{
     background:linear-gradient(135deg,#0a1f44,#0f8aa6);
     text-align:center;
     padding:30px;
-    box-shadow:0 0 25px rgba(0,240,255,0.3);
 }
 header h1{
     color:var(--accent);
-    font-size:2.4rem;
     text-shadow:0 0 10px var(--accent);
 }
 
-/* ===== NAV ===== */
+/* NAV */
 nav{
     background:var(--glass);
-    backdrop-filter: blur(10px);
     text-align:center;
     padding:12px;
-    position:sticky;
-    top:0;
-    z-index:1000;
 }
 nav a{
     color:white;
     margin:10px;
     text-decoration:none;
-    padding:8px 14px;
-    border-radius:8px;
-    transition:.3s;
 }
 nav a:hover{
-    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    background:var(--accent);
     color:black;
-    box-shadow:0 0 15px var(--accent);
+    padding:5px 10px;
+    border-radius:5px;
 }
 
-/* ===== CONTENIDO ===== */
+/* CONTENIDO */
 .container{
     padding:25px;
     margin:20px;
     background:var(--glass);
     border-radius:15px;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(10px);
 }
 
-/* ===== CARDS ===== */
+/* CARDS */
 .card{
     background:var(--card-bg);
-    border:1px solid rgba(255,255,255,0.1);
     border-left:5px solid var(--accent);
     padding:20px;
-    margin:18px 0;
-    border-radius:15px;
-    backdrop-filter: blur(10px);
-    transition:all .4s ease;
-    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+    margin:15px 0;
+    border-radius:12px;
+    transition:.3s;
 }
 .card:hover{
-    transform:translateY(-8px) scale(1.02);
-    box-shadow:0 0 25px rgba(0,240,255,0.4);
-    border-left:5px solid var(--accent2);
+    transform:scale(1.02);
 }
 
-/* ===== FOOTER ===== */
-footer{
-    background:rgba(0,0,0,0.85);
-    text-align:center;
-    padding:20px;
+/* VIDEO */
+.video{
+    position:relative;
+    padding-bottom:56.25%;
 }
-footer a{
-    color:var(--accent);
-}
-
-/* ===== ANIMACIONES ===== */
-.fade{
-    opacity:0;
-    transform:translateY(50px);
-}
-.fade.show{
-    opacity:1;
-    transform:translateY(0);
-    transition:all 1s cubic-bezier(.2,.8,.2,1);
-}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px){
-    .container{margin:10px;}
-    nav a{display:block;margin:5px;}
+.video iframe{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:10px;
 }
 
 </style>
@@ -127,69 +92,38 @@ footer a{
 
 <body>
 
-<!-- ===== HEADER ===== -->
-<header class="fade" id="inicio">
+<header>
 <h1>ECO WAVE 🌊</h1>
 <p>Energía sostenible</p>
 </header>
 
-<!-- ===== NAVBAR FUNCIONAL ===== -->
-<nav class="fade">
-<a href="#index.html">Inicio</a>
-<a href="#nosotros.html">Nosotros</a>
-<a href="#importancia">Importancia</a>
-<a href="#impacto">Impacto</a>
-<a href="#contacto">Contacto</a>
+<nav>
+<a href="index.html">Inicio</a>
+<a href="nosotros.html">Nosotros</a>
 </nav>
 
-<!-- ===== CONTENIDO ===== -->
 <div class="container">
 
-<div class="card fade" id="nosotros">
-<h2>¿Qué es Eco Wave?</h2>
-<p>Eco Wave es un proyecto enfocado en energías renovables, tecnología limpia y sostenibilidad. Busca generar un impacto positivo mediante soluciones innovadoras que ayuden a proteger el medio ambiente.</p>
+<div class="card">
+<h2>Bienvenido</h2>
+<p>Eco Wave es un proyecto enfocado en energías renovables y sostenibilidad.</p>
 </div>
 
-<div class="card fade" id="importancia">
+<div class="card">
 <h2>Importancia</h2>
-<p>En un mundo afectado por el cambio climático, Eco Wave impulsa alternativas que reducen la contaminación, fomentan el uso de energías limpias y promueven el cuidado de los recursos naturales.</p>
+<p>Promueve el uso de energías limpias y reduce la contaminación.</p>
 </div>
 
-<div class="card fade" id="impacto">
-<h2>Impacto</h2>
-<ul>
-<li>Reducción de contaminación</li>
-<li>Conciencia ambiental</li>
-<li>Uso de energías renovables</li>
-<li>Mejora en la calidad de vida</li>
-</ul>
+<!-- 🎥 VIDEO AGREGADO -->
+<div class="card">
+<h2>Video Informativo</h2>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/PsDY2WgvdCk" 
+frameborder="0" allowfullscreen></iframe>
+</div>
 </div>
 
 </div>
-
-<!-- ===== FOOTER ===== -->
-<footer id="contacto" class="fade">
-<h2>Contacto Eco Wave</h2>
-<p>🌍 contacto@ecowave.org</p>
-<p>📞 +57 300 608 7138</p>
-<p>© 2025 ECO WAVE</p>
-</footer>
-
-<!-- ===== JS ANIMACIONES ===== -->
-<script>
-const elementos=document.querySelectorAll('.fade');
-
-function mostrar(){
-elementos.forEach(el=>{
-if(el.getBoundingClientRect().top < window.innerHeight - 100){
-el.classList.add('show');
-}
-});
-}
-
-window.addEventListener('scroll',mostrar);
-window.addEventListener('load',mostrar);
-</script>
 
 </body>
 </html>
