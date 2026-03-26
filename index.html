@@ -7,11 +7,12 @@
 
 <style>
 
-/* ===== VARIABLES ===== */
+/* ===== VARIABLES PRO ===== */
 :root{
     --accent:#00F0FF;
-    --card-bg: rgba(41,54,150,0.85);
-    --glass: rgba(39,47,122,0.7);
+    --accent2:#00ff9d;
+    --card-bg: rgba(20,30,80,0.65);
+    --glass: rgba(0,0,0,0.45);
     --text:#EAF4FF;
 }
 
@@ -20,34 +21,44 @@ body{
     margin:0;
     font-family:Segoe UI;
     color:var(--text);
-    background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')
+    background:
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')
     no-repeat center/cover fixed;
 }
 
 /* ===== HEADER ===== */
 header{
-    background:#272F7A;
+    background:linear-gradient(135deg,#0a1f44,#0f8aa6);
     text-align:center;
-    padding:25px;
+    padding:30px;
+    box-shadow:0 0 25px rgba(0,240,255,0.3);
 }
-header h1{color:var(--accent);}
+header h1{
+    color:var(--accent);
+    font-size:2.4rem;
+    text-shadow:0 0 10px var(--accent);
+}
 
 /* ===== NAV ===== */
 nav{
     background:var(--glass);
+    backdrop-filter: blur(10px);
     text-align:center;
-    padding:10px;
+    padding:12px;
 }
 nav a{
     color:white;
     margin:10px;
     text-decoration:none;
+    padding:8px 14px;
+    border-radius:8px;
+    transition:.3s;
 }
 nav a:hover{
-    background:var(--accent);
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
     color:black;
-    padding:5px 10px;
-    border-radius:5px;
+    box-shadow:0 0 15px var(--accent);
 }
 
 /* ===== CONTENIDO ===== */
@@ -55,16 +66,26 @@ nav a:hover{
     padding:25px;
     margin:20px;
     background:var(--glass);
-    border-radius:10px;
+    border-radius:15px;
+    backdrop-filter: blur(12px);
 }
 
-/* ===== CARDS ===== */
+/* ===== CARDS PRO ===== */
 .card{
     background:var(--card-bg);
-    border-left:6px solid var(--accent);
+    border:1px solid rgba(255,255,255,0.1);
+    border-left:5px solid var(--accent);
     padding:20px;
-    margin:15px 0;
-    border-radius:12px;
+    margin:18px 0;
+    border-radius:15px;
+    backdrop-filter: blur(10px);
+    transition:all .4s ease;
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+}
+.card:hover{
+    transform:translateY(-8px) scale(1.02);
+    box-shadow:0 0 25px rgba(0,240,255,0.4);
+    border-left:5px solid var(--accent2);
 }
 
 /* ===== VIDEO ===== */
@@ -76,34 +97,37 @@ nav a:hover{
     position:absolute;
     width:100%;
     height:100%;
+    border-radius:10px;
 }
 
 /* ===== FOOTER ===== */
 footer{
-    background:rgba(0,0,0,0.8);
+    background:rgba(0,0,0,0.85);
     text-align:center;
     padding:20px;
 }
 footer a{
     color:var(--accent);
-    text-decoration:none;
 }
 .social a{
     margin:10px;
     font-size:22px;
+    transition:.3s;
+}
+.social a:hover{
+    color:var(--accent2);
+    transform:scale(1.2);
 }
 
 /* ===== ANIMACION ===== */
 .fade{
     opacity:0;
-    transform:translateY(40px);
-    visibility:hidden;
+    transform:translateY(50px);
 }
 .fade.show{
     opacity:1;
     transform:translateY(0);
-    visibility:visible;
-    transition:all 0.8s ease;
+    transition:all 1s cubic-bezier(.2,.8,.2,1);
 }
 
 /* ===== RESPONSIVE ===== */
@@ -133,12 +157,12 @@ footer a{
 
 <div class="card fade">
 <h2>¿Qué es Eco Wave?</h2>
-<p>Proyecto enfocado en energías renovables y sostenibilidad.</p>
+<p>Proyecto enfocado en energías renovables, tecnología limpia y sostenibilidad. Busca generar impacto positivo mediante soluciones innovadoras.</p>
 </div>
 
 <div class="card fade">
 <h2>Importancia</h2>
-<p>Ayuda a reducir la contaminación y promueve energía limpia.</p>
+<p>Eco Wave contribuye a reducir la contaminación y promueve el uso de energías limpias, ayudando a construir un futuro más sostenible.</p>
 </div>
 
 <div class="card fade">
@@ -153,12 +177,12 @@ footer a{
 <ul>
 <li>Menos contaminación</li>
 <li>Conciencia ambiental</li>
+<li>Uso de energías renovables</li>
 </ul>
 </div>
 
 </div>
 
-<!-- ===== FOOTER ===== -->
 <footer id="contacto" class="fade">
 <h2>Contacto Eco Wave</h2>
 <p>🌍 Email: <a href="mailto:contacto@ecowave.org">contacto@ecowave.org</a></p>
