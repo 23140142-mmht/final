@@ -7,28 +7,23 @@
 
 <style>
 
-/* ===== SISTEMA VISUAL NUEVO ===== */
+/* ===== NUEVO ESTILO AZUL ===== */
 :root{
     --blue-main:#0f8aa6;
     --blue-dark:#081c3a;
     --cyan:#00e5ff;
-    --glass:rgba(10,15,40,0.6);
+    --bg-glass:rgba(10,15,40,0.6);
     --card:rgba(25,40,90,0.7);
     --text:#e6f7ff;
 }
 
-/* RESET */
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
     font-family:'Segoe UI',sans-serif;
     color:var(--text);
     background:
-    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.8)),
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.85)),
     url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')
     center/cover fixed;
 }
@@ -36,24 +31,18 @@ body{
 /* HEADER */
 header{
     background:linear-gradient(120deg,var(--blue-dark),var(--blue-main));
-    padding:35px 20px;
     text-align:center;
-}
-
-header h1{
-    color:var(--cyan);
-    font-size:2.2rem;
-    letter-spacing:2px;
+    padding:30px;
 }
 
 /* NAV */
 nav{
     display:flex;
     justify-content:center;
-    gap:20px;
+    flex-wrap:wrap;
+    gap:15px;
+    background:var(--bg-glass);
     padding:12px;
-    background:var(--glass);
-    backdrop-filter:blur(8px);
 }
 
 nav a{
@@ -69,40 +58,49 @@ nav a:hover{
     color:black;
 }
 
-/* CONTENEDOR */
-.container{
-    width:90%;
-    max-width:900px;
+/* CONTENIDO */
+.section{
+    max-width:1000px;
     margin:30px auto;
-}
-
-/* TARJETAS */
-.card{
-    background:var(--card);
-    padding:20px;
-    margin-bottom:20px;
-    border-radius:14px;
-    border-left:4px solid var(--cyan);
+    background:var(--bg-glass);
+    padding:25px;
+    border-radius:12px;
     opacity:0;
     transform:translateY(40px);
-    transition:.6s ease;
+    transition:.6s;
 }
 
-.card.visible{
+.section.visible{
     opacity:1;
     transform:translateY(0);
 }
 
-/* VIDEO */
-.video{
-    position:relative;
-    padding-bottom:56.25%;
+.section h2{
+    color:var(--cyan);
+    margin-bottom:10px;
 }
-.video iframe{
-    position:absolute;
+
+/* TABLA */
+table{
     width:100%;
-    height:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+    background:white;
+    color:black;
     border-radius:10px;
+    overflow:hidden;
+}
+
+thead{
+    background:var(--cyan);
+}
+
+th,td{
+    padding:10px;
+}
+
+tbody tr:hover{
+    background:#f1f1f1;
 }
 
 /* FOOTER */
@@ -117,30 +115,46 @@ footer a{
     color:var(--cyan);
 }
 
-.social{
-    margin:10px 0;
-}
-
 .social a{
-    font-size:22px;
     margin:0 8px;
-    display:inline-block;
-    transition:.3s;
+    font-size:20px;
 }
 
-.social a:hover{
-    transform:scale(1.2);
-    color:#00ff9d;
+/* LANG */
+.lang-switch{
+    position:fixed;
+    bottom:20px;
+    right:20px;
 }
 
-/* RESPONSIVE */
-@media(max-width:600px){
-    header h1{
-        font-size:1.6rem;
-    }
-    nav{
-        flex-wrap:wrap;
-    }
+.lang-btn{
+    background:var(--blue-main);
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.lang-dropdown{
+    display:none;
+    flex-direction:column;
+    background:var(--blue-main);
+    margin-bottom:10px;
+    border-radius:10px;
+}
+
+.lang-dropdown a{
+    padding:10px;
+    color:white;
+    text-decoration:none;
+}
+
+.lang-dropdown a:hover{
+    background:var(--cyan);
+    color:black;
+}
+
+.show{
+    display:flex;
 }
 
 </style>
@@ -148,37 +162,79 @@ footer a{
 
 <body>
 
-<header>
+<header class="fade">
 <h1>ECO WAVE 🌊</h1>
-<p>Energía sostenible</p>
+<p>Innovación, energía y sostenibilidad para un futuro verde</p>
 </header>
 
-<nav>
-<a href="#index.html">Inicio</a>
-<a href="#nosotros.html">Nosotros</a>
-<a href="#productos.html">Productos</a>
-<a href="#foda.html">FODA</a>
+<nav class="fade">
+<a href="index.html">Inicio</a>
+<a href="nosotros.html">Nosotros</a>
+<a href="productos.html">Productos</a>
+<a href="foda.html">FODA</a>
 </nav>
 
-<div class="container">
+<section class="section" id="productos">
+<h2>Productos Eco-amigables</h2>
+<p>Explora algunos productos sostenibles que ayudan a reducir el impacto ambiental:</p>
 
-<div class="card">
-<h2>Bienvenido</h2>
-<p>Eco Wave es un proyecto enfocado en energías renovables y sostenibilidad.</p>
-</div>
+<table>
+<thead>
+<tr>
+<th>Producto</th>
+<th>Descripción</th>
+<th>Precio</th>
+<th>Enlace</th>
+</tr>
+</thead>
 
-<div class="card">
-<h2>Importancia</h2>
-<p>Promueve el uso de energías limpias y reduce la contaminación.</p>
-</div>
+<tbody>
+<tr>
+<td>Bombilla LED Solar</td>
+<td>Recargable con energía solar.</td>
+<td>≈ $63 MXN</td>
+<td><a href="#">Disponible pronto</a></td>
+</tr>
 
-<div class="card">
-<h2>Video Informativo</h2>
-<div class="video">
-<iframe src="https://www.youtube.com/embed/PsDY2WgvdCk" allowfullscreen></iframe>
-</div>
-</div>
+<tr>
+<td>Panel Solar Portátil</td>
+<td>Ideal para camping o uso doméstico.</td>
+<td>≈ $357 MXN</td>
+<td><a href="#">Disponible pronto</a></td>
+</tr>
 
+<tr>
+<td>PowerBank solar</td>
+<td>Ideal para camping o eventos al aire libre</td>
+<td>≈ $629 MXN</td>
+<td><a href="#">Disponible pronto</a></td>
+</tr>
+
+<tr>
+<td>Ventilador Solar Portátil</td>
+<td>Funciona con panel solar para uso en exteriores.</td>
+<td>≈ $220 MXN</td>
+<td><a href="#">Disponible pronto</a></td>
+</tr>
+
+<tr>
+<td>Reloj Solar Digital</td>
+<td>Funciona con energía solar y batería interna.</td>
+<td>≈ $150 MXN</td>
+<td><a href="#">Disponible pronto</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<!-- IDIOMA -->
+<div class="lang-switch">
+<div class="lang-btn" onclick="toggleLang()">🌐 Idioma</div>
+
+<div class="lang-dropdown" id="langMenu">
+<a href="?lang=es">Español</a>
+<a href="?lang=en">English</a>
+</div>
 </div>
 
 <footer>
@@ -192,19 +248,19 @@ footer a{
 <a href="#">🌐</a>
 </div>
 
-<p>© 2025 ECO WAVE</p>
+<p>© 2025 ECO WAVE | Energía Renovable y Educación Ambiental</p>
 </footer>
 
 <script>
 
-/* ===== ANIMACIÓN SCROLL (PRO) ===== */
-const cards = document.querySelectorAll('.card');
+/* ANIMACIÓN SCROLL */
+const sections = document.querySelectorAll('.section');
 
 const mostrar = () => {
-    cards.forEach(card => {
-        const top = card.getBoundingClientRect().top;
+    sections.forEach(sec=>{
+        const top = sec.getBoundingClientRect().top;
         if(top < window.innerHeight - 80){
-            card.classList.add('visible');
+            sec.classList.add('visible');
         }
     });
 };
@@ -212,17 +268,10 @@ const mostrar = () => {
 window.addEventListener('scroll', mostrar);
 window.addEventListener('load', mostrar);
 
-
-/* ===== EFECTO NAV ACTIVO ===== */
-const links = document.querySelectorAll('nav a');
-
-links.forEach(link=>{
-    link.addEventListener('click',()=>{
-        links.forEach(l=>l.style.background='none');
-        link.style.background='var(--cyan)';
-        link.style.color='black';
-    });
-});
+/* MENÚ IDIOMA */
+function toggleLang(){
+    document.getElementById('langMenu').classList.toggle('show');
+}
 
 </script>
 
