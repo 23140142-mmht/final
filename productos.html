@@ -36,11 +36,50 @@ body{
     min-height:100vh;
 }
 
-/* HEADER */
+/* ===== HEADER PRO (MEJORADO) ===== */
 header{
-    background:linear-gradient(120deg,var(--blue-dark),var(--blue-main));
+    background:linear-gradient(135deg,#081c3a,#0f8aa6);
     text-align:center;
-    padding:30px;
+    padding:40px 20px;
+    position:relative;
+    overflow:hidden;
+}
+
+/* Glow animado */
+header::before{
+    content:"";
+    position:absolute;
+    width:300%;
+    height:300%;
+    top:-100%;
+    left:-100%;
+    background:radial-gradient(circle, rgba(0,229,255,0.15), transparent 60%);
+    animation:moveGlow 8s linear infinite;
+}
+
+@keyframes moveGlow{
+    0%{transform:translate(0,0);}
+    50%{transform:translate(50%,50%);}
+    100%{transform:translate(0,0);}
+}
+
+.logo{
+    font-size:2.5rem;
+    color:var(--cyan);
+    text-shadow:
+        0 0 10px var(--cyan),
+        0 0 20px var(--cyan),
+        0 0 40px rgba(0,229,255,0.7);
+    position:relative;
+    z-index:1;
+}
+
+.subtitle{
+    margin-top:10px;
+    font-size:1rem;
+    opacity:0.9;
+    position:relative;
+    z-index:1;
 }
 
 /* NAV */
@@ -112,7 +151,7 @@ tbody tr:hover{
     background:#f1f1f1;
 }
 
-/* FOOTER (CORREGIDO TOTAL) */
+/* FOOTER */
 footer{
     background:#050f28;
     padding:50px 20px;
@@ -213,11 +252,11 @@ footer a:hover{
 <body>
 
 <header>
-<h1>ECO WAVE 🌊</h1>
-<p>Innovación, energía y sostenibilidad para un futuro verde</p>
+    <h1 class="logo">ECO WAVE 🌊</h1>
+    <p class="subtitle">Innovación, energía y sostenibilidad para un futuro verde</p>
 </header>
 
-<nav class="fade">
+<nav>
 <a href="index.html">Inicio</a>
 <a href="nosotros.html">Nosotros</a>
 <a href="productos.html">Productos</a>
