@@ -43,6 +43,92 @@ header h1{
     text-shadow:0 0 10px var(--accent);
 }
  
+/* ── QUOTE BANNER ── */
+#quote-banner {
+    background: linear-gradient(135deg, rgba(4,18,48,0.92), rgba(8,60,90,0.88));
+    border-top: 1px solid rgba(0,240,255,0.18);
+    border-bottom: 1px solid rgba(0,240,255,0.18);
+    padding: 28px 24px 22px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#quote-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), var(--accent2), transparent);
+    animation: scan-line 3s ease-in-out 0.5s forwards;
+}
+
+@keyframes scan-line {
+    0%   { left: -100%; opacity: 0; }
+    20%  { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}
+
+#quote-banner .particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+#quote-banner .particles span {
+    position: absolute;
+    width: 2px; height: 2px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0;
+    animation: particle-float linear infinite;
+}
+
+@keyframes particle-float {
+    0%   { transform: translateY(100%) translateX(0); opacity: 0; }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.3; }
+    100% { transform: translateY(-120%) translateX(var(--drift)); opacity: 0; }
+}
+
+#quote-banner .quote-mark {
+    font-size: 64px;
+    line-height: 0.6;
+    color: var(--accent);
+    opacity: 0.25;
+    font-family: Georgia, serif;
+    display: block;
+    margin-bottom: 6px;
+    user-select: none;
+}
+
+#quote-text {
+    font-size: clamp(13px, 2.2vw, 16px);
+    font-style: italic;
+    color: #cce8ff;
+    line-height: 1.7;
+    max-width: 740px;
+    margin: 0 auto 10px;
+}
+
+#quote-author {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+#quote-author.visible { opacity: 1; }
+
+@keyframes banner-glow-pulse {
+    0%,100% { box-shadow: 0 0 0px transparent; }
+    50%      { box-shadow: 0 0 22px rgba(0,240,255,0.25), 0 0 50px rgba(0,240,255,0.08); }
+}
+#quote-banner.glow-done {
+    animation: banner-glow-pulse 3s ease-in-out infinite;
+}
+
 /* NAV */
 nav{
     background:var(--glass);
@@ -65,7 +151,6 @@ nav a:hover{
     border-radius:5px;
 }
 
-/* Nav glow class (añadida por JS) */
 nav a.nav-glow {
     box-shadow:
         0 0 8px #5bc8f5,
@@ -98,7 +183,6 @@ nav a.nav-glow {
     transform:scale(1.02);
 }
 
-/* Card glow class (añadida por JS) */
 .card.card-glow {
     box-shadow:
         0 0 12px #5bc8f5,
@@ -108,14 +192,12 @@ nav a.nav-glow {
     border-left-color: #a8e8ff;
 }
  
-/* IMÁGENES GENERALES — excluye .img-ods */
 .card img:not(.img-ods){
     width:100%;
     border-radius:12px;
     margin:15px 0;
 }
  
-/* 📱 RESPONSIVE */
 @media(max-width:768px){
     .img-ods{
         float:none;
@@ -124,7 +206,6 @@ nav a.nav-glow {
     }
 }
  
-/* VIDEO */
 .video{
     position:relative;
     padding-bottom:56.25%;
@@ -136,7 +217,6 @@ nav a.nav-glow {
     border-radius:10px;
 }
  
-/* FOOTER */
 footer{
     background:#03142b;
     text-align:center;
@@ -183,13 +263,21 @@ footer a{
 <h1>ECO WAVE 🌊</h1>
 <p>Energía sostenible para un futuro mejor</p>
 </header>
- 
+
 <nav>
 <a href="index.html">Inicio</a>
 <a href="nosotros.html">Nosotros</a>
 <a href="productos.html">Productos</a>
 <a href="foda.html">FODA</a>
 </nav>
+
+<!-- ── QUOTE BANNER ── -->
+<div id="quote-banner">
+    <div class="particles" id="particles"></div>
+    <span class="quote-mark">"</span>
+    <p id="quote-text"></p>
+    <p id="quote-author">— Barack Obama</p>
+</div>
  
 <div class="container">
  
@@ -281,24 +369,47 @@ combinando innovación, sostenibilidad y educación ambiental.
 </footer>
 
 <script>
+  // === PARTÍCULAS FLOTANTES ===
+  const particlesContainer = document.getElementById('particles');
+  for (let i = 0; i < 18; i++) {
+    const s = document.createElement('span');
+    const left = Math.random() * 100;
+    const dur  = 6 + Math.random() * 8;
+    const del  = Math.random() * 6;
+    const drift = (Math.random() - 0.5) * 60;
+    s.style.cssText = `
+      left: ${left}%;
+      bottom: 0;
+      --drift: ${drift}px;
+      animation-duration: ${dur}s;
+      animation-delay: ${del}s;
+      width: ${1 + Math.random() * 2}px;
+      height: ${1 + Math.random() * 2}px;
+      background: ${Math.random() > 0.5 ? 'var(--accent)' : 'var(--accent2)'};
+    `;
+    particlesContainer.appendChild(s);
+  }
+
+  // === QUOTE ===
+  const el = document.getElementById('quote-text');
+  const authorEl = document.getElementById('quote-author');
+  const banner = document.getElementById('quote-banner');
+  el.textContent = "Somos la primera generación que siente el impacto del cambio climático y la última que puede hacer algo al respecto.";
+  setTimeout(() => {
+    authorEl.classList.add('visible');
+    banner.classList.add('glow-done');
+  }, 400);
+
   // === GLOW EN CARDS ===
   document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      card.classList.add('card-glow');
-    });
-    card.addEventListener('mouseleave', () => {
-      card.classList.remove('card-glow');
-    });
+    card.addEventListener('mouseenter', () => card.classList.add('card-glow'));
+    card.addEventListener('mouseleave', () => card.classList.remove('card-glow'));
   });
 
   // === GLOW EN BOTONES DE LA NAV ===
   document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('mouseenter', () => {
-      link.classList.add('nav-glow');
-    });
-    link.addEventListener('mouseleave', () => {
-      link.classList.remove('nav-glow');
-    });
+    link.addEventListener('mouseenter', () => link.classList.add('nav-glow'));
+    link.addEventListener('mouseleave', () => link.classList.remove('nav-glow'));
   });
 </script>
  
