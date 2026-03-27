@@ -67,7 +67,6 @@ nav a:hover{
     box-shadow:0 0 15px var(--accent);
 }
 
-/* 🔥 EFECTO GLOW NAV */
 nav a.nav-glow {
     box-shadow:
         0 0 8px #5bc8f5,
@@ -119,8 +118,15 @@ th,td{
     padding:10px;
 }
 
-tbody tr:hover{
-    background:#f1f1f1;
+tbody tr{
+    transition:.3s;
+}
+
+/* ✨ NUEVO: GLOW EN FILAS */
+.row-glow{
+    background:#e6fcff !important;
+    box-shadow:0 0 12px rgba(0,229,255,0.6);
+    transform:scale(1.01);
 }
 
 /* FOOTER */
@@ -223,14 +229,23 @@ function mostrar(){
 window.addEventListener('scroll', mostrar);
 window.addEventListener('load', mostrar);
 
-/* 🔥 EFECTO GLOW NAV DINÁMICO */
+/* NAV GLOW */
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('mouseenter', () => {
         link.classList.add('nav-glow');
     });
-
     link.addEventListener('mouseleave', () => {
         link.classList.remove('nav-glow');
+    });
+});
+
+/* ✨ GLOW TABLA */
+document.querySelectorAll("tbody tr").forEach(fila => {
+    fila.addEventListener("mouseenter", () => {
+        fila.classList.add("row-glow");
+    });
+    fila.addEventListener("mouseleave", () => {
+        fila.classList.remove("row-glow");
     });
 });
 
