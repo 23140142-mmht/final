@@ -1,1 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECO WAVE</title>
 
+<style>
+:root{
+    --accent:#00F0FF;
+    --accent2:#00ff9d;
+    --card-bg: rgba(20,30,80,0.65);
+    --glass: rgba(0,0,0,0.45);
+    --text:#EAF4FF;
+}
+
+/* BODY FLEX */
+body{
+    margin:0;
+    font-family:Segoe UI;
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    background:
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')
+    no-repeat center/cover fixed;
+}
+
+/* CONTENEDOR FLEX */
+.container{
+    flex:1;
+    padding:25px;
+    margin:20px;
+    background:var(--glass);
+    border-radius:15px;
+    backdrop-filter: blur(10px);
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#0a1f44,#0f8aa6);
+    text-align:center;
+    padding:30px;
+}
+header h1{
+    color:var(--accent);
+    text-shadow:0 0 10px var(--accent);
+}
+
+/* NAV */
+nav{
+    background:var(--glass);
+    text-align:center;
+    padding:12px;
+}
+nav a{
+    color:white;
+    margin:10px;
+    text-decoration:none;
+}
+nav a:hover{
+    background:var(--accent);
+    color:black;
+    padding:5px 10px;
+    border-radius:5px;
+}
+
+/* TITULOS */
+.section h2{
+    color:var(--accent);
+    border-left:5px solid var(--accent);
+    padding-left:10px;
+}
+
+/* CARDS (FODA) */
+.foda-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+    margin-top:20px;
+}
+
+.card{
+    background:var(--card-bg);
+    border-left:5px solid var(--accent);
+    padding:20px;
+    width:260px;
+    border-radius:12px;
+    transition:.3s;
+}
+.card:hover{
+    transform:scale(1.05);
+}
+
+.card h3{
+    text-align:center;
+    color:var(--accent2);
+}
+
+/* FOOTER */
+footer{
+    background:#03142b;
+    text-align:center;
+    padding:30px 20px;
+    color:#cfefff;
+    box-shadow:0 -5px 25px rgba(0,240,255,0.2);
+}
+
+footer h2{
+    color:var(--accent);
+}
+
+footer a{
+    color:var(--accent);
+    text-decoration:none;
+}
+
+.social a{
+    margin:0 10px;
+    font-size:20px;
+    transition:.3s;
+}
+
+.social a:hover{
+    color:var(--accent2);
+    transform:scale(1.2);
+}
+
+/* LANG BUTTON */
+.lang-switch{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+}
+
+.lang-btn{
+    background:var(--accent);
+    color:black;
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.lang-dropdown{
+    display:none;
+    background:#03142b;
+    margin-top:10px;
+    border-radius:10px;
+}
+
+.lang-dropdown a{
+    display:block;
+    padding:10px;
+    color:white;
+}
+
+#toggleLang:checked ~ .lang-dropdown{
+    display:block;
+}
+
+/* ANIMACION */
+.fade-in{
+    opacity:0;
+    transform:translateY(20px);
+    transition:0.7s;
+}
+.fade-in.is-visible{
+    opacity:1;
+    transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<header class="fade-in">
+<h1>ECO WAVE 🌊</h1>
+<p>Energía sostenible</p>
+</header>
+
+<nav class="fade-in">
+<a href="index.html">Inicio</a>
+<a href="nosotros.html">Nosotros</a>
+<a href="productos.html">Productos</a>
+<a href="foda.html">FODA</a>
+</nav>
+
+<div class="container">
+
+<section class="section fade-in">
+<h2>Análisis FODA</h2>
+
+<div class="foda-container">
+
+<div class="card">
+<h3>Fortalezas</h3>
+<ul>
+<li>Soluciones sostenibles</li>
+<li>Educación ambiental</li>
+<li>Alianzas estratégicas</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Debilidades</h3>
+<ul>
+<li>Recursos limitados</li>
+<li>En desarrollo</li>
+<li>Falta de herramientas</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Oportunidades</h3>
+<ul>
+<li>Alta demanda</li>
+<li>Apoyo gubernamental</li>
+<li>Conciencia ambiental</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Amenazas</h3>
+<ul>
+<li>Competencia</li>
+<li>Costos altos</li>
+<li>Desconocimiento</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+</div>
+
+<div class="lang-switch">
+<input type="checkbox" id="toggleLang">
+<label for="toggleLang" class="lang-btn">🌐 Idioma</label>
+<div class="lang-dropdown">
+<a href="#">Español</a>
+<a href="#">English</a>
+</div>
+</div>
+
+<footer class="fade-in">
+<h2>Contacto Eco Wave</h2>
+<p>🌍 <a href="mailto:contacto@ecowave.org">contacto@ecowave.org</a></p>
+<p>📞 +57 300 608 7138</p>
+
+<div class="social">
+<a href="#">📸</a>
+<a href="#">🎥</a>
+<a href="#">🌐</a>
+</div>
+
+<p>© 2025 ECO WAVE</p>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add("is-visible");
+}
+});
+});
+document.querySelectorAll(".fade-in").forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
