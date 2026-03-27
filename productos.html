@@ -7,125 +7,96 @@
 
 <style>
 
-/* ===== BASE ===== */
 :root{
-    --blue-main:#0f8aa6;
-    --blue-dark:#081c3a;
-    --cyan:#00e5ff;
-    --bg:#050f28;
-    --glass:rgba(10,15,40,0.7);
-    --text:#e6f7ff;
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-
-html{
-    background:var(--bg);
+    --accent:#00F0FF;
+    --accent2:#00ff9d;
+    --card-bg: rgba(20,30,80,0.65);
+    --glass: rgba(0,0,0,0.45);
+    --text:#EAF4FF;
 }
 
 body{
-    font-family:'Segoe UI',sans-serif;
+    margin:0;
+    font-family:Segoe UI;
     color:var(--text);
-    background:
-    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.85)),
-    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')
-    center/cover fixed;
-    
+    min-height:100vh;
     display:flex;
     flex-direction:column;
-    min-height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')
+    no-repeat center/cover fixed;
 }
 
-/* ===== HEADER PRO (MEJORADO) ===== */
+/* HEADER */
 header{
-    background:linear-gradient(135deg,#081c3a,#0f8aa6);
+    background:linear-gradient(135deg,#0a1f44,#0f8aa6);
     text-align:center;
-    padding:40px 20px;
-    position:relative;
-    overflow:hidden;
+    padding:30px;
+    box-shadow:0 0 25px rgba(0,240,255,0.3);
 }
-
-/* Glow animado */
-header::before{
-    content:"";
-    position:absolute;
-    width:300%;
-    height:300%;
-    top:-100%;
-    left:-100%;
-    background:radial-gradient(circle, rgba(0,229,255,0.15), transparent 60%);
-    animation:moveGlow 8s linear infinite;
-}
-
-@keyframes moveGlow{
-    0%{transform:translate(0,0);}
-    50%{transform:translate(50%,50%);}
-    100%{transform:translate(0,0);}
-}
-
-.logo{
+header h1{
+    color:var(--accent);
     font-size:2.5rem;
-    color:var(--cyan);
-    text-shadow:
-        0 0 10px var(--cyan),
-        0 0 20px var(--cyan),
-        0 0 40px rgba(0,229,255,0.7);
-    position:relative;
-    z-index:1;
+    text-shadow:0 0 10px var(--accent);
 }
-
-.subtitle{
-    margin-top:10px;
-    font-size:1rem;
-    opacity:0.9;
-    position:relative;
-    z-index:1;
+header p{
+    color:#bdefff;
 }
 
 /* NAV */
 nav{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
     background:var(--glass);
+    text-align:center;
     padding:12px;
+    position:sticky;
+    top:0;
 }
-
 nav a{
     color:white;
+    margin:10px;
     text-decoration:none;
-    padding:6px 12px;
-    border-radius:6px;
+    padding:8px 14px;
+    border-radius:8px;
+    display:inline-block;
     transition:.3s;
 }
-
 nav a:hover{
-    background:var(--cyan);
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
     color:black;
+    box-shadow:0 0 15px var(--accent);
 }
 
-/* CONTENIDO */
-.section{
-    max-width:1000px;
-    margin:30px auto;
-    background:var(--glass);
+/* 🔥 EFECTO GLOW NAV */
+nav a.nav-glow {
+    box-shadow:
+        0 0 8px #5bc8f5,
+        0 0 18px #5bc8f588,
+        0 0 32px #5bc8f544;
+    background: rgba(91, 200, 245, 0.15);
+    color: #a8e8ff;
+}
+
+/* CONTENEDOR */
+.container{
+    flex:1;
     padding:25px;
-    border-radius:12px;
-
-    opacity:0;
-    transform:translateY(40px);
-    transition:.6s;
+    margin:20px;
 }
 
-.section.visible{
-    opacity:1;
-    transform:translateY(0);
+/* CARD */
+.card{
+    background:var(--card-bg);
+    padding:20px;
+    border-radius:15px;
+    backdrop-filter: blur(10px);
+    margin-bottom:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+    transition:.4s;
 }
-
-.section h2{
-    color:var(--cyan);
-    margin-bottom:10px;
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 25px rgba(0,240,255,0.4);
 }
 
 /* TABLA */
@@ -140,7 +111,8 @@ table{
 }
 
 thead{
-    background:var(--cyan);
+    background:var(--accent);
+    color:black;
 }
 
 th,td{
@@ -153,97 +125,25 @@ tbody tr:hover{
 
 /* FOOTER */
 footer{
-    background:#050f28;
-    padding:50px 20px;
+    background:#03142b;
     text-align:center;
+    padding:30px 20px;
+    color:#cfefff;
     margin-top:auto;
-    border-top:2px solid var(--cyan);
 }
-
 footer h2{
-    color:var(--cyan);
-    margin-bottom:10px;
+    color:var(--accent);
 }
 
-footer p{
-    margin:6px 0;
-    font-size:14px;
-    opacity:0.9;
+/* ANIMACIÓN */
+.fade{
+    opacity:0;
+    transform:translateY(40px);
 }
-
-footer a{
-    color:var(--cyan);
-    text-decoration:none;
-}
-
-footer a:hover{
-    text-decoration:underline;
-}
-
-.social{
-    margin:15px 0;
-}
-
-.social a{
-    display:inline-block;
-    margin:0 10px;
-    font-size:22px;
-    transition:.3s;
-}
-
-.social a:hover{
-    transform:scale(1.2);
-    color:#00ff9d;
-}
-
-.copy{
-    margin-top:15px;
-    font-size:13px;
-    opacity:0.7;
-}
-
-/* IDIOMA */
-.lang-switch{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-}
-
-.lang-btn{
-    background:var(--blue-main);
-    padding:10px 15px;
-    border-radius:10px;
-    cursor:pointer;
-}
-
-.lang-dropdown{
-    display:none;
-    flex-direction:column;
-    background:var(--blue-main);
-    margin-bottom:10px;
-    border-radius:10px;
-}
-
-.lang-dropdown a{
-    padding:10px;
-    color:white;
-    text-decoration:none;
-}
-
-.lang-dropdown a:hover{
-    background:var(--cyan);
-    color:black;
-}
-
-.show{
-    display:flex;
-}
-
-/* RESPONSIVE */
-@media(max-width:600px){
-    nav{
-        gap:8px;
-    }
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+    transition:all 1s;
 }
 
 </style>
@@ -251,19 +151,21 @@ footer a:hover{
 
 <body>
 
-<header>
-    <h1 class="logo">ECO WAVE 🌊</h1>
-    <p class="subtitle">Innovación, energía y sostenibilidad para un futuro verde</p>
+<header class="fade">
+    <h1>ECO WAVE 🌊</h1>
+    <p>Innovación, energía y sostenibilidad para un futuro verde</p>
 </header>
 
-<nav>
+<nav class="fade">
 <a href="index.html">Inicio</a>
 <a href="nosotros.html">Nosotros</a>
 <a href="productos.html">Productos</a>
 <a href="foda.html">FODA</a>
 </nav>
 
-<section class="section">
+<div class="container">
+
+<div class="card fade">
 <h2>Productos Eco-amigables</h2>
 <p>Explora algunos productos sostenibles que ayudan a reducir el impacto ambiental:</p>
 
@@ -278,87 +180,59 @@ footer a:hover{
 </thead>
 
 <tbody>
-<tr>
-<td>Bombilla LED Solar</td>
-<td>Recargable con energía solar.</td>
-<td>≈ $63 MXN</td>
-<td><a href="#">Disponible pronto</a></td>
-</tr>
 
-<tr>
-<td>Panel Solar Portátil</td>
-<td>Ideal para camping o uso doméstico.</td>
-<td>≈ $357 MXN</td>
-<td><a href="#">Disponible pronto</a></td>
-</tr>
+<tr><td>Bombilla LED Solar</td><td>Recargable con energía solar.</td><td>≈ $63 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
+<tr><td>Panel Solar Portátil</td><td>Ideal para camping o uso doméstico.</td><td>≈ $357 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
+<tr><td>PowerBank solar</td><td>Ideal para exteriores</td><td>≈ $629 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
+<tr><td>Ventilador Solar Portátil</td><td>Uso exterior con energía solar.</td><td>≈ $220 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
+<tr><td>Reloj Solar Digital</td><td>Funciona con energía solar.</td><td>≈ $150 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
 
-<tr>
-<td>PowerBank solar</td>
-<td>Ideal para camping o eventos al aire libre</td>
-<td>≈ $629 MXN</td>
-<td><a href="#">Disponible pronto</a></td>
-</tr>
+<tr><td>Cargador Solar USB</td><td>Carga celulares con energía solar.</td><td>≈ $180 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
+<tr><td>Lámpara Solar de Jardín</td><td>Iluminación exterior automática.</td><td>≈ $95 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
+<tr><td>Mochila con Panel Solar</td><td>Carga dispositivos al moverte.</td><td>≈ $520 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
+<tr><td>Cocina Solar Portátil</td><td>Cocina con energía solar.</td><td>≈ $890 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
+<tr><td>Linterna Solar LED</td><td>Perfecta para emergencias.</td><td>≈ $110 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
 
-<tr>
-<td>Ventilador Solar Portátil</td>
-<td>Funciona con panel solar para uso en exteriores.</td>
-<td>≈ $220 MXN</td>
-<td><a href="#">Disponible pronto</a></td>
-</tr>
-
-<tr>
-<td>Reloj Solar Digital</td>
-<td>Funciona con energía solar y batería interna.</td>
-<td>≈ $150 MXN</td>
-<td><a href="#">Disponible pronto</a></td>
-</tr>
 </tbody>
 </table>
-</section>
 
-<!-- IDIOMA -->
-<div class="lang-switch">
-<div class="lang-btn" onclick="toggleLang()">🌐 Idioma</div>
-
-<div class="lang-dropdown" id="langMenu">
-<a href="?lang=es">Español</a>
-<a href="?lang=en">English</a>
 </div>
+
 </div>
 
 <footer>
 <h2>Contacto Eco Wave</h2>
-<p>🌍 <a href="mailto:contacto@ecowave.org">contacto@ecowave.org</a></p>
+<p>🌍 contacto@ecowave.org</p>
 <p>📞 +57 300 608 7138</p>
-
-<div class="social">
-<a href="https://www.instagram.com/_ecowave_3107/" target="_blank">📸</a>
-<a href="https://www.youtube.com/watch?v=PsDY2WgvdCk" target="_blank">🎥</a>
-<a href="#">🌐</a>
-</div>
-
-<p class="copy">© 2025 ECO WAVE | Energía Renovable y Educación Ambiental</p>
+<p>© 2025 ECO WAVE</p>
 </footer>
 
 <script>
 
-/* ANIMACIÓN */
-const section = document.querySelector('.section');
+/* ANIMACIÓN SCROLL */
+const elementos = document.querySelectorAll('.fade');
 
 function mostrar(){
-    const top = section.getBoundingClientRect().top;
-    if(top < window.innerHeight - 80){
-        section.classList.add('visible');
-    }
+    elementos.forEach(el => {
+        if(el.getBoundingClientRect().top < window.innerHeight - 100){
+            el.classList.add('show');
+        }
+    });
 }
 
 window.addEventListener('scroll', mostrar);
 window.addEventListener('load', mostrar);
 
-/* IDIOMA */
-function toggleLang(){
-    document.getElementById('langMenu').classList.toggle('show');
-}
+/* 🔥 EFECTO GLOW NAV DINÁMICO */
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        link.classList.add('nav-glow');
+    });
+
+    link.addEventListener('mouseleave', () => {
+        link.classList.remove('nav-glow');
+    });
+});
 
 </script>
 
