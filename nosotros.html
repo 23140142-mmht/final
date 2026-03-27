@@ -7,16 +7,15 @@
 
 <style>
 
-/* ===== VARIABLES PRO ===== */
 :root{
     --accent:#00F0FF;
     --accent2:#00ff9d;
     --card-bg: rgba(20,30,80,0.65);
     --glass: rgba(0,0,0,0.45);
     --text:#EAF4FF;
+    --glow-color: #5bc8f5;
 }
 
-/* ===== GLOBAL + FIX FOOTER ===== */
 body{
     margin:0;
     font-family:Segoe UI;
@@ -71,12 +70,22 @@ nav a{
     text-decoration:none;
     padding:8px 14px;
     border-radius:8px;
+    display:inline-block;
     transition:all .3s ease;
 }
 nav a:hover{
     background:linear-gradient(90deg,var(--accent),var(--accent2));
     color:black;
     box-shadow:0 0 15px var(--accent);
+}
+
+nav a.nav-glow {
+    box-shadow:
+        0 0 8px #5bc8f5,
+        0 0 18px #5bc8f588,
+        0 0 32px #5bc8f544;
+    background: rgba(91, 200, 245, 0.15);
+    color: #a8e8ff;
 }
 
 /* ===== CARDS ===== */
@@ -97,7 +106,16 @@ nav a:hover{
     border-left:5px solid var(--accent2);
 }
 
-/* ===== FOOTER PRO (GLOBAL) ===== */
+.card.card-glow {
+    box-shadow:
+        0 0 12px #5bc8f5,
+        0 0 28px #5bc8f566,
+        0 0 50px #5bc8f522,
+        inset 0 0 20px rgba(91, 200, 245, 0.07);
+    border-left-color: #a8e8ff;
+}
+
+/* ===== FOOTER ===== */
 footer{
     background:#03142b;
     text-align:center;
@@ -175,36 +193,49 @@ footer a{
 
 <div class="card fade">
 <h2>¿Qué es Eco Wave?</h2>
-<p><strong>Eco Wave</strong> es una iniciativa enfocada en el desarrollo de soluciones sostenibles...</p>
+<p><strong>Eco Wave</strong> es una iniciativa enfocada en el desarrollo de soluciones sostenibles que buscan reducir el impacto ambiental mediante el uso de energías limpias y tecnologías innovadoras. Nuestro objetivo principal es promover una cultura ecológica que integre a las personas, empresas y comunidades en la transición hacia un futuro más responsable.</p>
+
+<p>Inspirado en los principios de la sostenibilidad global y la innovación tecnológica, Eco Wave propone alternativas prácticas que combinan eficiencia energética, educación ambiental y responsabilidad social. A través de proyectos, investigación y concientización, buscamos generar un cambio positivo que sea accesible y replicable en distintos contextos.</p>
 </div>
 
 <div class="card fade">
 <h2>Importancia</h2>
-<p>El cambio climático representa uno de los mayores desafíos globales...</p>
+<p>El cambio climático representa uno de los mayores desafíos globales de la actualidad, afectando ecosistemas, economías y la calidad de vida de millones de personas. Frente a esta problemática, iniciativas como Eco Wave se vuelven esenciales para impulsar soluciones que reduzcan las emisiones contaminantes y fomenten el uso responsable de los recursos naturales.</p>
+
+<p>Además, la transición hacia energías renovables no solo ayuda al medio ambiente, sino que también abre oportunidades de desarrollo tecnológico, generación de empleo verde y fortalecimiento de comunidades resilientes. La educación y la innovación son claves para lograr un equilibrio entre el crecimiento humano y la protección del planeta.</p>
 </div>
 
 <div class="card fade">
 <h2>Impacto</h2>
 <ul>
-<li>Reducción de emisiones</li>
-<li>Energías renovables</li>
-<li>Conciencia ambiental</li>
+<li>Reducción de emisiones contaminantes mediante el uso de energías limpias.</li>
+<li>Promoción de tecnologías sostenibles accesibles para la sociedad.</li>
+<li>Fomento de la conciencia ambiental en jóvenes y comunidades.</li>
+<li>Impulso a proyectos ecológicos con impacto local y global.</li>
+<li>Contribución a objetivos internacionales de desarrollo sostenible.</li>
 </ul>
+
+<p>El impacto de Eco Wave no solo se mide en resultados ambientales, sino también en la transformación de la mentalidad social hacia prácticas más responsables y sostenibles.</p>
 </div>
 
 <div class="card fade">
 <h2>Nuestra Visión</h2>
-<p>Convertirse en referente en sostenibilidad...</p>
+<p>Convertirse en un referente en sostenibilidad e innovación ambiental a nivel nacional e internacional, liderando proyectos que integren tecnología, educación y responsabilidad ecológica. Aspiramos a un futuro donde las energías renovables sean la base del desarrollo y donde cada persona tenga un papel activo en el cuidado del planeta.</p>
+
+<p>Buscamos construir una sociedad consciente, donde el progreso no comprometa los recursos de las futuras generaciones, sino que garantice un equilibrio entre desarrollo y naturaleza.</p>
 </div>
 
 <div class="card fade">
 <h2>Compromiso Social</h2>
-<p>Trabajo con comunidades y educación ambiental...</p>
+<p>Eco Wave mantiene un firme compromiso con la sociedad, trabajando de la mano con comunidades, instituciones educativas y organizaciones para promover la educación ambiental y el desarrollo sostenible.</p>
+
+<p>Nuestro enfoque incluye la creación de programas educativos, talleres y actividades que permitan a las personas comprender la importancia del cuidado del medio ambiente y adoptar hábitos más responsables en su vida diaria.</p>
+
+<p>Creemos que el cambio comienza con la acción colectiva, por lo que fomentamos la participación activa y el trabajo en equipo para lograr un impacto real y duradero.</p>
 </div>
 
 </div>
 
-<!-- 🔥 FOOTER GLOBAL -->
 <footer>
 <h2>Contacto Eco Wave</h2>
 
@@ -221,18 +252,28 @@ footer a{
 </footer>
 
 <script>
-const elementos=document.querySelectorAll('.fade');
+const elementos = document.querySelectorAll('.fade');
 
 function mostrar(){
-elementos.forEach(el=>{
-if(el.getBoundingClientRect().top < window.innerHeight - 100){
-el.classList.add('show');
-}
-});
+    elementos.forEach(el => {
+        if(el.getBoundingClientRect().top < window.innerHeight - 100){
+            el.classList.add('show');
+        }
+    });
 }
 
-window.addEventListener('scroll',mostrar);
-window.addEventListener('load',mostrar);
+window.addEventListener('scroll', mostrar);
+window.addEventListener('load', mostrar);
+
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mouseenter', () => card.classList.add('card-glow'));
+    card.addEventListener('mouseleave', () => card.classList.remove('card-glow'));
+});
+
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('mouseenter', () => link.classList.add('nav-glow'));
+    link.addEventListener('mouseleave', () => link.classList.remove('nav-glow'));
+});
 </script>
 
 </body>
