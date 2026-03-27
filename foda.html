@@ -49,8 +49,6 @@ nav a{
     border-radius:5px;
     transition:.3s;
 }
-
-/* GLOW NAV */
 nav a.nav-glow{
     box-shadow:
         0 0 8px #5bc8f5,
@@ -118,7 +116,6 @@ h2{
     min-width:250px;
     transition:.3s;
 }
-
 .card.card-glow{
     box-shadow:
         0 0 12px #5bc8f5,
@@ -181,7 +178,6 @@ footer a{
 <a href="foda.html">FODA</a>
 </nav>
 
-
 <!-- FRASE -->
 <div class="quote-simple">
 <p id="type-text"></p>
@@ -190,17 +186,89 @@ footer a{
 
 <div class="container fade-in">
 
+<!-- INTRO -->
 <section>
 <h2>¿Qué es Eco Wave?</h2>
-<p>Proyecto enfocado en energías renovables y sostenibilidad ambiental.</p>
+<p>
+Eco Wave es un proyecto enfocado en la innovación energética y la sostenibilidad ambiental...
+</p>
+<p>
+Busca transformar la forma en que las comunidades consumen energía...
+</p>
 </section>
 
+<!-- IMPORTANCIA -->
 <section>
 <h2>Importancia</h2>
 <div class="grid">
-<div class="card">🌱 Energía limpia</div>
-<div class="card">⚡ Innovación</div>
-<div class="card">🌍 Futuro sostenible</div>
+<div class="card">
+<h3>🌱 Energía limpia</h3>
+<p>Reduce la contaminación y protege los ecosistemas.</p>
+</div>
+
+<div class="card">
+<h3>⚡ Innovación</h3>
+<p>Impulsa nuevas tecnologías sostenibles.</p>
+</div>
+
+<div class="card">
+<h3>🌍 Futuro sostenible</h3>
+<p>Garantiza recursos para futuras generaciones.</p>
+</div>
+</div>
+</section>
+
+<!-- IMPACTO -->
+<section>
+<h2>Impacto Ambiental</h2>
+<div class="grid">
+<div class="card"><p>Disminución de CO₂.</p></div>
+<div class="card"><p>Menos combustibles fósiles.</p></div>
+<div class="card"><p>Cultura ecológica.</p></div>
+</div>
+</section>
+
+<!-- FODA -->
+<section>
+<h2>Análisis FODA</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Fortalezas</h3>
+<ul>
+<li>Innovación</li>
+<li>Educación</li>
+<li>Sostenibilidad</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Debilidades</h3>
+<ul>
+<li>Recursos limitados</li>
+<li>Infraestructura</li>
+<li>En desarrollo</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Oportunidades</h3>
+<ul>
+<li>Alta demanda</li>
+<li>Apoyo gobierno</li>
+<li>Conciencia</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Amenazas</h3>
+<ul>
+<li>Competencia</li>
+<li>Costos</li>
+<li>Desinformación</li>
+</ul>
+</div>
+
 </div>
 </section>
 
@@ -208,7 +276,7 @@ footer a{
 
 <footer class="fade-in">
 <h2>Contacto Eco Wave</h2>
-<p>🌍 <a href="#">contacto@ecowave.org</a></p>
+<p>🌍 <a href="mailto:contacto@ecowave.org">contacto@ecowave.org</a></p>
 <p>📞 +57 300 608 7138</p>
 
 <div class="social">
@@ -240,22 +308,14 @@ escribir();
 
 // NAV GLOW
 document.querySelectorAll('nav a').forEach(link=>{
-    link.addEventListener('mouseenter',()=>{
-        link.classList.add('nav-glow');
-    });
-    link.addEventListener('mouseleave',()=>{
-        link.classList.remove('nav-glow');
-    });
+    link.addEventListener('mouseenter',()=>link.classList.add('nav-glow'));
+    link.addEventListener('mouseleave',()=>link.classList.remove('nav-glow'));
 });
 
 // CARD GLOW
 document.querySelectorAll('.card').forEach(card=>{
-    card.addEventListener('mouseenter',()=>{
-        card.classList.add('card-glow');
-    });
-    card.addEventListener('mouseleave',()=>{
-        card.classList.remove('card-glow');
-    });
+    card.addEventListener('mouseenter',()=>card.classList.add('card-glow'));
+    card.addEventListener('mouseleave',()=>card.classList.remove('card-glow'));
 });
 
 // FADE IN
