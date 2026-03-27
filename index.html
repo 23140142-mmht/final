@@ -82,14 +82,20 @@ nav a:hover{
     transform:scale(1.02);
 }
  
+/* Card ODS con acento verde */
+.card-ods {
+    border-left-color: #4CAF50;
+}
+.card-ods h2 {
+    color: #4CAF50;
+}
+ 
 /* IMÁGENES GENERALES — excluye .img-ods */
 .card img:not(.img-ods){
     width:100%;
     border-radius:12px;
     margin:15px 0;
 }
- 
-
  
 /* 📱 RESPONSIVE */
 @media(max-width:768px){
@@ -204,9 +210,9 @@ Objetivos de Desarrollo Sostenible (ODS).
 </ul>
 </div>
  
-
-<h2 style="color:#4CAF50;">ODS 13: Acción por el Clima 🌍</h2>
- 
+<!-- ODS 13 ahora correctamente dentro de una card con estilo verde -->
+<div class="card card-ods">
+<h2>ODS 13: Acción por el Clima 🌍</h2>
  
 <p>
 Eco Wave lidera iniciativas de acción por el clima mediante la promoción de productos 
@@ -223,7 +229,6 @@ y educación ambiental, ayudando a reducir la huella de carbono en distintas com
 Al elegir Eco Wave, las personas se convierten en agentes de cambio, apoyando 
 un modelo que protege el planeta y promueve un futuro sostenible.
 </p>
- 
 </div>
  
 <div class="card">
@@ -260,4 +265,3 @@ combinando innovación, sostenibilidad y educación ambiental.
  
 </body>
 </html>
- 
