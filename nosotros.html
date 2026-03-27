@@ -1,4 +1,3 @@
-@@ -1,209 +1,209 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,15 +16,27 @@
     --text:#EAF4FF;
 }
 
-/* ===== GLOBAL ===== */
+/* ===== GLOBAL + FIX FOOTER ===== */
 body{
     margin:0;
     font-family:Segoe UI;
     color:var(--text);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
     background:
     linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
     url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')
     no-repeat center/cover fixed;
+}
+
+.container{
+    flex:1;
+    padding:25px;
+    margin:20px;
+    background:var(--glass);
+    border-radius:15px;
+    backdrop-filter: blur(12px);
 }
 
 /* ===== HEADER ===== */
@@ -68,15 +79,6 @@ nav a:hover{
     box-shadow:0 0 15px var(--accent);
 }
 
-/* ===== CONTENIDO ===== */
-.container{
-    padding:25px;
-    margin:20px;
-    background:var(--glass);
-    border-radius:15px;
-    backdrop-filter: blur(12px);
-}
-
 /* ===== CARDS ===== */
 .card{
     background:var(--card-bg);
@@ -95,14 +97,43 @@ nav a:hover{
     border-left:5px solid var(--accent2);
 }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER PRO (GLOBAL) ===== */
 footer{
-    background:rgba(0,0,0,0.85);
+    background:#03142b;
     text-align:center;
-    padding:25px;
+    padding:30px 20px;
+    color:#cfefff;
+    box-shadow:0 -5px 25px rgba(0,240,255,0.2);
 }
+
+footer h2{
+    color:var(--accent);
+    margin-bottom:10px;
+}
+
+footer p{
+    margin:5px 0;
+    font-size:14px;
+}
+
 footer a{
     color:var(--accent);
+    text-decoration:none;
+}
+
+.social{
+    margin:15px 0;
+}
+
+.social a{
+    margin:0 10px;
+    font-size:20px;
+    transition:.3s;
+}
+
+.social a:hover{
+    color:var(--accent2);
+    transform:scale(1.2);
 }
 
 /* ===== ANIMACIONES ===== */
@@ -144,51 +175,49 @@ footer a{
 
 <div class="card fade">
 <h2>¿Qué es Eco Wave?</h2>
-<p><strong>Eco Wave</strong> es una iniciativa enfocada en el desarrollo de soluciones sostenibles que integran energías renovables, tecnología limpia y educación ambiental. Su propósito principal es contribuir a la construcción de un futuro donde el desarrollo humano y la protección del medio ambiente puedan coexistir de manera equilibrada.</p>
-
-<p>La organización busca implementar proyectos innovadores que aprovechen los recursos naturales de forma responsable, promoviendo el uso de energías limpias como la solar, eólica e hidráulica. Además, fomenta una cultura de sostenibilidad a través de programas educativos que impulsan la conciencia ambiental en la sociedad.</p>
+<p><strong>Eco Wave</strong> es una iniciativa enfocada en el desarrollo de soluciones sostenibles...</p>
 </div>
 
 <div class="card fade">
 <h2>Importancia</h2>
-<p>En la actualidad, el cambio climático representa uno de los mayores desafíos a nivel global. El aumento de la contaminación, la sobreexplotación de recursos naturales y el uso excesivo de energías no renovables han generado un impacto negativo en el planeta.</p>
-
-<p>Eco Wave surge como una respuesta a esta problemática, ofreciendo alternativas sostenibles que permiten reducir la huella ambiental. La implementación de tecnologías limpias no solo contribuye a la preservación del entorno, sino que también mejora la calidad de vida de las personas.</p>
-
-<p>Además, este proyecto promueve la transición hacia un modelo energético más responsable, incentivando a individuos, empresas y comunidades a adoptar prácticas más ecológicas.</p>
+<p>El cambio climático representa uno de los mayores desafíos globales...</p>
 </div>
 
 <div class="card fade">
 <h2>Impacto</h2>
 <ul>
-<li>Reducción significativa de emisiones contaminantes</li>
-<li>Promoción del uso de energías renovables</li>
-<li>Conciencia ambiental en la sociedad</li>
-<li>Optimización del uso de recursos naturales</li>
-<li>Mejora en la calidad de vida de comunidades</li>
-<li>Fomento de la innovación tecnológica sostenible</li>
+<li>Reducción de emisiones</li>
+<li>Energías renovables</li>
+<li>Conciencia ambiental</li>
 </ul>
 </div>
 
 <div class="card fade">
 <h2>Nuestra Visión</h2>
-<p>Eco Wave aspira a convertirse en un referente en el desarrollo de soluciones sostenibles a nivel nacional e internacional. Su visión se centra en inspirar a nuevas generaciones a adoptar prácticas responsables que contribuyan al cuidado del planeta.</p>
-
-<p>A largo plazo, busca consolidar proyectos que generen impacto positivo en diversas comunidades, promoviendo un modelo de desarrollo basado en la sostenibilidad, la innovación y la responsabilidad social.</p>
+<p>Convertirse en referente en sostenibilidad...</p>
 </div>
 
 <div class="card fade">
 <h2>Compromiso Social</h2>
-<p>Uno de los pilares fundamentales de Eco Wave es su compromiso con la sociedad. La organización trabaja en colaboración con comunidades vulnerables, brindando acceso a tecnologías limpias y promoviendo la educación ambiental.</p>
-
-<p>A través de alianzas estratégicas con instituciones, empresas y organizaciones, se desarrollan iniciativas que buscan reducir la desigualdad, mejorar las condiciones de vida y fomentar un desarrollo sostenible inclusivo.</p>
+<p>Trabajo con comunidades y educación ambiental...</p>
 </div>
 
 </div>
 
-<footer class="fade">
+<!-- 🔥 FOOTER GLOBAL -->
+<footer>
 <h2>Contacto Eco Wave</h2>
-<p>contacto@ecowave.org</p>
+
+<p>🌍 <a href="mailto:contacto@ecowave.org">contacto@ecowave.org</a></p>
+<p>📞 +57 300 608 7138</p>
+
+<div class="social">
+<a href="https://www.instagram.com/_ecowave_3107/" target="_blank">📸</a>
+<a href="https://www.youtube.com/watch?v=PsDY2WgvdCk" target="_blank">🎥</a>
+<a href="#">🌐</a>
+</div>
+
+<p>© 2025 ECO WAVE | Energía Renovable y Educación Ambiental</p>
 </footer>
 
 <script>
