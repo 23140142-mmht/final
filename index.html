@@ -144,6 +144,34 @@ footer a{
     color:var(--accent2);
     transform:scale(1.2);
 }
+    /* IMAGEN ODS */
+.ods{
+    position:relative;
+}
+
+.img-ods{
+    width:220px;
+    float:right;
+    margin:10px 0 10px 20px;
+    border-radius:12px;
+    opacity:0.85;
+    box-shadow:0 0 15px rgba(0,255,150,0.25);
+    transition:0.3s;
+}
+
+.img-ods:hover{
+    transform:scale(1.05);
+    opacity:1;
+}
+
+/* 📱 RESPONSIVE */
+@media(max-width:768px){
+    .img-ods{
+        float:none;
+        display:block;
+        margin:15px auto;
+    }
+}
 </style>
 </head>
 
@@ -200,10 +228,10 @@ y educación ambiental.
 </div>
 
 <!-- 🔥 NUEVA SECCIÓN ODS 13 -->
-<div class="card">
+<div class="card ods">
 <h2 style="color:#4CAF50;">ODS 13: Acción por el Clima 🌍</h2>
 
-<img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074">
+<img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074" class="img-ods">
 
 <p>
 Eco Wave lidera iniciativas de acción por el clima mediante la promoción de productos 
@@ -219,12 +247,6 @@ y fomentar la adopción de tecnologías limpias en la vida diaria. Además, cada
 permite financiar talleres de educación ambiental y campañas de concientización sobre el cambio climático.
 </p>
 
-<p>
-Al elegir Eco Wave, los consumidores se convierten en aliados activos en la lucha contra el 
-cambio climático, apoyando un modelo sostenible que protege el planeta y promueve un futuro más verde.
-</p>
-
-</div>
 
 <div class="card">
 <h2>💡 Innovación y Futuro</h2>
