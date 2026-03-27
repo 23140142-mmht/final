@@ -49,9 +49,15 @@ nav a{
     border-radius:5px;
     transition:.3s;
 }
-nav a:hover{
-    background:var(--accent);
-    color:black;
+
+/* GLOW NAV */
+nav a.nav-glow{
+    box-shadow:
+        0 0 8px #5bc8f5,
+        0 0 18px #5bc8f588,
+        0 0 32px #5bc8f544;
+    background: rgba(91, 200, 245, 0.15);
+    color:#a8e8ff;
 }
 
 /* FRASE */
@@ -112,9 +118,12 @@ h2{
     min-width:250px;
     transition:.3s;
 }
-.card:hover{
-    transform:scale(1.03);
-    box-shadow:0 0 20px rgba(0,240,255,0.3);
+
+.card.card-glow{
+    box-shadow:
+        0 0 12px #5bc8f5,
+        0 0 28px #5bc8f566,
+        0 0 50px #5bc8f522;
 }
 
 /* FOOTER */
@@ -145,7 +154,7 @@ footer a{
     transform:scale(1.2);
 }
 
-/* ANIMACION */
+/* FADE */
 .fade-in{
     opacity:0;
     transform:translateY(20px);
@@ -166,11 +175,12 @@ footer a{
 </header>
 
 <nav>
-<a href="#">Inicio</a>
-<a href="#">Nosotros</a>
-<a href="#">Productos</a>
-<a href="#">FODA</a>
+<a href="index.html">Inicio</a>
+<a href="nosotros.html">Nosotros</a>
+<a href="productos.html">Productos</a>
+<a href="foda.html">FODA</a>
 </nav>
+
 
 <!-- FRASE -->
 <div class="quote-simple">
@@ -180,112 +190,25 @@ footer a{
 
 <div class="container fade-in">
 
-<!-- INTRO -->
 <section>
 <h2>¿Qué es Eco Wave?</h2>
-<p>
-Eco Wave es un proyecto enfocado en la innovación energética y la sostenibilidad ambiental.
-Promueve el uso de energías renovables como la solar, eólica e hidráulica.
-</p>
-<p>
-Busca transformar la forma en que las comunidades consumen energía mediante soluciones tecnológicas accesibles,
-fomentando un desarrollo limpio, eficiente y responsable con el planeta.
-</p>
+<p>Proyecto enfocado en energías renovables y sostenibilidad ambiental.</p>
 </section>
 
-<!-- IMPORTANCIA -->
 <section>
 <h2>Importancia</h2>
-
 <div class="grid">
-<div class="card">
-<h3>🌱 Energía limpia</h3>
-<p>Reduce la contaminación y protege los ecosistemas.</p>
-</div>
-
-<div class="card">
-<h3>⚡ Innovación</h3>
-<p>Impulsa nuevas tecnologías sostenibles.</p>
-</div>
-
-<div class="card">
-<h3>🌍 Futuro sostenible</h3>
-<p>Garantiza recursos para futuras generaciones.</p>
-</div>
-</div>
-</section>
-
-<!-- IMPACTO -->
-<section>
-<h2>Impacto Ambiental</h2>
-
-<div class="grid">
-<div class="card">
-<p>Disminución de emisiones de CO₂ mediante energías renovables.</p>
-</div>
-
-<div class="card">
-<p>Reducción del uso de combustibles fósiles.</p>
-</div>
-
-<div class="card">
-<p>Fomento de una cultura ecológica en la sociedad.</p>
-</div>
-</div>
-</section>
-
-<!-- FODA -->
-<section>
-<h2>Análisis FODA</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Fortalezas</h3>
-<ul>
-<li>Soluciones sostenibles</li>
-<li>Educación ambiental</li>
-<li>Innovación constante</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Debilidades</h3>
-<ul>
-<li>Recursos limitados</li>
-<li>En desarrollo</li>
-<li>Poca infraestructura</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Oportunidades</h3>
-<ul>
-<li>Alta demanda global</li>
-<li>Apoyo gubernamental</li>
-<li>Conciencia ecológica</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Amenazas</h3>
-<ul>
-<li>Competencia creciente</li>
-<li>Costos iniciales</li>
-<li>Desinformación</li>
-</ul>
-</div>
-
+<div class="card">🌱 Energía limpia</div>
+<div class="card">⚡ Innovación</div>
+<div class="card">🌍 Futuro sostenible</div>
 </div>
 </section>
 
 </div>
 
-<!-- FOOTER -->
 <footer class="fade-in">
 <h2>Contacto Eco Wave</h2>
-
-<p>🌍 <a href="mailto:contacto@ecowave.org">contacto@ecowave.org</a></p>
+<p>🌍 <a href="#">contacto@ecowave.org</a></p>
 <p>📞 +57 300 608 7138</p>
 
 <div class="social">
@@ -314,6 +237,26 @@ function escribir(){
     }
 }
 escribir();
+
+// NAV GLOW
+document.querySelectorAll('nav a').forEach(link=>{
+    link.addEventListener('mouseenter',()=>{
+        link.classList.add('nav-glow');
+    });
+    link.addEventListener('mouseleave',()=>{
+        link.classList.remove('nav-glow');
+    });
+});
+
+// CARD GLOW
+document.querySelectorAll('.card').forEach(card=>{
+    card.addEventListener('mouseenter',()=>{
+        card.classList.add('card-glow');
+    });
+    card.addEventListener('mouseleave',()=>{
+        card.classList.remove('card-glow');
+    });
+});
 
 // FADE IN
 const io = new IntersectionObserver(entries=>{
