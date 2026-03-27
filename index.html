@@ -14,14 +14,23 @@
     --text:#EAF4FF;
 }
 
+/* 🔥 BODY FLEX PARA FIJAR FOOTER */
 body{
     margin:0;
     font-family:Segoe UI;
     color:var(--text);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
     background:
     linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
     url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')
     no-repeat center/cover fixed;
+}
+
+/* Hace que el contenido empuje el footer */
+.container{
+    flex:1;
 }
 
 /* HEADER */
@@ -87,22 +96,40 @@ nav a:hover{
     border-radius:10px;
 }
 
-/* FOOTER */
+/* 🔥 FOOTER PRO */
 footer{
-    background:rgba(0,0,0,0.85);
+    background:#03142b;
     text-align:center;
-    padding:25px;
-    margin-top:20px;
+    padding:30px 20px;
+    color:#cfefff;
+    box-shadow:0 -5px 25px rgba(0,240,255,0.2);
 }
+
+footer h2{
+    color:var(--accent);
+    margin-bottom:10px;
+}
+
+footer p{
+    margin:5px 0;
+    font-size:14px;
+}
+
 footer a{
     color:var(--accent);
     text-decoration:none;
 }
+
+.social{
+    margin:15px 0;
+}
+
 .social a{
-    margin:10px;
-    font-size:22px;
+    margin:0 10px;
+    font-size:20px;
     transition:.3s;
 }
+
 .social a:hover{
     color:var(--accent2);
     transform:scale(1.2);
@@ -118,7 +145,7 @@ footer a{
 <p>Energía sostenible</p>
 </header>
 
-<nav class="fade">
+<nav>
 <a href="index.html">Inicio</a>
 <a href="nosotros.html">Nosotros</a>
 <a href="productos.html">Productos</a>
@@ -146,9 +173,10 @@ footer a{
 
 </div>
 
-<!-- 🔥 FOOTER AGREGADO -->
+<!-- 🔥 FOOTER FINAL GLOBAL -->
 <footer>
 <h2>Contacto Eco Wave</h2>
+
 <p>🌍 <a href="mailto:contacto@ecowave.org">contacto@ecowave.org</a></p>
 <p>📞 +57 300 608 7138</p>
 
@@ -158,7 +186,7 @@ footer a{
 <a href="#">🌐</a>
 </div>
 
-<p>© 2025 ECO WAVE</p>
+<p>© 2025 ECO WAVE | Energía Renovable y Educación Ambiental</p>
 </footer>
 
 </body>
