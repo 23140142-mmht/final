@@ -82,16 +82,40 @@ nav a:hover{
     transform:scale(1.02);
 }
 
-/* IMÁGENES */
+/* IMÁGENES GENERALES */
 .card img{
     width:100%;
     border-radius:12px;
     margin:15px 0;
-    transition:0.4s;
 }
-.card img:hover{
-    transform:scale(1.02);
-    box-shadow:0 0 20px rgba(0,255,150,0.4);
+
+/* 🌍 IMAGEN DECORATIVA ODS */
+.ods{
+    position:relative;
+}
+
+.img-ods{
+    width:220px;
+    float:right;
+    margin:10px 0 10px 20px;
+    border-radius:12px;
+    opacity:0.85;
+    box-shadow:0 0 15px rgba(0,255,150,0.25);
+    transition:0.3s;
+}
+
+.img-ods:hover{
+    transform:scale(1.05);
+    opacity:1;
+}
+
+/* 📱 RESPONSIVE */
+@media(max-width:768px){
+    .img-ods{
+        float:none;
+        display:block;
+        margin:15px auto;
+    }
 }
 
 /* VIDEO */
@@ -144,34 +168,6 @@ footer a{
     color:var(--accent2);
     transform:scale(1.2);
 }
-    /* IMAGEN ODS */
-.ods{
-    position:relative;
-}
-
-.img-ods{
-    width:220px;
-    float:right;
-    margin:10px 0 10px 20px;
-    border-radius:12px;
-    opacity:0.85;
-    box-shadow:0 0 15px rgba(0,255,150,0.25);
-    transition:0.3s;
-}
-
-.img-ods:hover{
-    transform:scale(1.05);
-    opacity:1;
-}
-
-/* 📱 RESPONSIVE */
-@media(max-width:768px){
-    .img-ods{
-        float:none;
-        display:block;
-        margin:15px auto;
-    }
-}
 </style>
 </head>
 
@@ -215,8 +211,7 @@ respetuosas con el medio ambiente.
 <h2>🌍 Agenda 2030 y Desarrollo Sostenible</h2>
 <p>
 Eco Wave se alinea con los principios de la Agenda 2030, contribuyendo a los 
-Objetivos de Desarrollo Sostenible (ODS) mediante el uso de tecnologías limpias 
-y educación ambiental.
+Objetivos de Desarrollo Sostenible (ODS).
 </p>
 
 <ul>
@@ -227,7 +222,7 @@ y educación ambiental.
 </ul>
 </div>
 
-<!-- 🔥 NUEVA SECCIÓN ODS 13 -->
+<!-- 🔥 ODS 13 MEJORADO -->
 <div class="card ods">
 <h2 style="color:#4CAF50;">ODS 13: Acción por el Clima 🌍</h2>
 
@@ -236,24 +231,26 @@ y educación ambiental.
 <p>
 Eco Wave lidera iniciativas de acción por el clima mediante la promoción de productos 
 sostenibles y ecológicos, incluyendo paneles solares portátiles, kits de energía renovable, 
-cargadores solares y accesorios ecológicos. Cada compra no solo ofrece soluciones energéticas 
-limpias, sino que también contribuye directamente a programas de reforestación, conservación 
-de bosques y restauración de ecosistemas degradados.
+cargadores solares y accesorios ecológicos.
 </p>
 
 <p>
-Nuestros proyectos están diseñados para reducir la huella de carbono de las comunidades 
-y fomentar la adopción de tecnologías limpias en la vida diaria. Además, cada producto vendido 
-permite financiar talleres de educación ambiental y campañas de concientización sobre el cambio climático.
+Cada compra contribuye a programas de reforestación, conservación de ecosistemas 
+y educación ambiental, ayudando a reducir la huella de carbono en distintas comunidades.
 </p>
 
+<p>
+Al elegir Eco Wave, las personas se convierten en agentes de cambio, apoyando 
+un modelo que protege el planeta y promueve un futuro sostenible.
+</p>
+
+</div>
 
 <div class="card">
 <h2>💡 Innovación y Futuro</h2>
 <p>
-El proyecto apuesta por la integración de nuevas tecnologías que permitan 
-aprovechar mejor los recursos naturales, combinando innovación, sostenibilidad 
-y educación ambiental.
+El proyecto apuesta por nuevas tecnologías que aprovechan mejor los recursos naturales, 
+combinando innovación, sostenibilidad y educación ambiental.
 </p>
 </div>
 
