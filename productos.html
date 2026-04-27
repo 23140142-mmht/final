@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ECO WAVE</title>
+<title>ECO WAVE – Productos</title>
 
 <style>
-
 :root{
     --accent:#00F0FF;
     --accent2:#00ff9d;
@@ -51,6 +50,7 @@ nav{
     padding:12px;
     position:sticky;
     top:0;
+    z-index:100;
 }
 nav a{
     color:white;
@@ -66,13 +66,9 @@ nav a:hover{
     color:black;
     box-shadow:0 0 15px var(--accent);
 }
-
 nav a.nav-glow {
-    box-shadow:
-        0 0 8px #5bc8f5,
-        0 0 18px #5bc8f588,
-        0 0 32px #5bc8f544;
-    background: rgba(91, 200, 245, 0.15);
+    box-shadow:0 0 8px #5bc8f5,0 0 18px #5bc8f588,0 0 32px #5bc8f544;
+    background: rgba(91,200,245,0.15);
     color: #a8e8ff;
 }
 
@@ -83,7 +79,7 @@ nav a.nav-glow {
     margin:20px;
 }
 
-/* CARD */
+/* CARD GENÉRICA */
 .card{
     background:var(--card-bg);
     padding:20px;
@@ -98,35 +94,122 @@ nav a.nav-glow {
     box-shadow:0 0 25px rgba(0,240,255,0.4);
 }
 
-/* TABLA */
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:15px;
-    background:white;
-    color:black;
-    border-radius:10px;
+/* ========================
+   GRID DE PRODUCTOS
+======================== */
+.productos-grid{
+    display:grid;
+    /* Columnas adaptables: mínimo 180px, máximo fracción igual */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap:18px;
+    margin-top:20px;
+}
+
+/* TARJETA DE PRODUCTO (en el grid) */
+.producto-card{
+    background:var(--card-bg);
+    border-radius:14px;
+    backdrop-filter:blur(10px);
     overflow:hidden;
+    cursor:pointer;
+    text-decoration:none;
+    color:var(--text);
+    display:flex;
+    flex-direction:column;
+    transition:.35s;
+    box-shadow:0 4px 18px rgba(0,0,0,0.35);
+}
+.producto-card:hover{
+    transform:translateY(-6px) scale(1.02);
+    box-shadow:0 0 22px rgba(0,240,255,0.5);
+}
+.producto-card img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    display:block;
+    /* ──────────────────────────────────────────────
+       ↑ REEMPLAZA src="" con la ruta de tu imagen.
+       Ejemplo: src="img/bombilla-solar.jpg"
+    ────────────────────────────────────────────── */
+}
+.producto-card .prod-nombre{
+    padding:10px 12px;
+    font-size:0.85rem;
+    font-weight:600;
+    text-align:center;
+    color:var(--accent);
+    line-height:1.3;
 }
 
-thead{
-    background:var(--accent);
-    color:black;
+/* ========================
+   PÁGINA DE DETALLE
+======================== */
+.detalle-wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+    align-items:flex-start;
 }
-
-th,td{
-    padding:10px;
+.detalle-img{
+    flex:1 1 260px;
+    max-width:420px;
 }
-
-tbody tr{
+.detalle-img img{
+    width:100%;
+    border-radius:12px;
+    box-shadow:0 0 20px rgba(0,240,255,0.3);
+    /* ──────────────────────────────────────────────
+       ↑ Imagen principal del producto en detalle.
+       Cambia src="" por la ruta de tu imagen.
+    ────────────────────────────────────────────── */
+}
+.detalle-info{
+    flex:1 1 280px;
+}
+.detalle-info h2{
+    color:var(--accent);
+    font-size:1.6rem;
+    margin-top:0;
+    text-shadow:0 0 8px var(--accent);
+}
+.detalle-info .precio{
+    font-size:1.4rem;
+    font-weight:700;
+    color:var(--accent2);
+    margin:10px 0;
+}
+.detalle-info p{
+    line-height:1.7;
+    color:#cce8f8;
+    /* ↑ Aquí va la descripción larga del producto */
+}
+.detalle-info ul{
+    padding-left:18px;
+    color:#bce0f0;
+    line-height:1.9;
+    /* ↑ Lista de características / bullet points */
+}
+.btn-comprar{
+    display:inline-block;
+    margin-top:18px;
+    padding:12px 28px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    color:#000;
+    font-weight:700;
+    border-radius:10px;
+    text-decoration:none;
+    font-size:1rem;
     transition:.3s;
+    box-shadow:0 0 14px rgba(0,240,255,0.4);
+    /* ──────────────────────────────────────────────
+       ↑ Cambia href="#" por el enlace de compra
+         en tu propia web / carrito.
+    ────────────────────────────────────────────── */
 }
-
-/* ✨ NUEVO: GLOW EN FILAS */
-.row-glow{
-    background:#e6fcff !important;
-    box-shadow:0 0 12px rgba(0,229,255,0.6);
-    transform:scale(1.01);
+.btn-comprar:hover{
+    box-shadow:0 0 25px var(--accent);
+    transform:scale(1.04);
 }
 
 /* FOOTER */
@@ -137,24 +220,19 @@ footer{
     color:#cfefff;
     margin-top:auto;
 }
-footer h2{
-    color:var(--accent);
-}
+footer h2{color:var(--accent);}
 
-/* ANIMACIÓN */
-.fade{
-    opacity:0;
-    transform:translateY(40px);
-}
-.fade.show{
-    opacity:1;
-    transform:translateY(0);
-    transition:all 1s;
-}
+/* ANIMACIÓN SCROLL */
+.fade{opacity:0;transform:translateY(40px);}
+.fade.show{opacity:1;transform:translateY(0);transition:all 1s;}
 
+/* RESPONSIVE EXTRA */
+@media(max-width:500px){
+    .productos-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));}
+    .detalle-info h2{font-size:1.2rem;}
+}
 </style>
 </head>
-
 <body>
 
 <header class="fade">
@@ -163,61 +241,157 @@ footer h2{
 </header>
 
 <nav class="fade">
-<a href="index.html">Inicio</a>
-<a href="nosotros.html">Nosotros</a>
-<a href="productos.html">Productos</a>
-<a href="foda.html">FODA</a>
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="productos.html">Productos</a>
+    <a href="foda.html">FODA</a>
 </nav>
 
 <div class="container">
 
-<div class="card fade">
-<h2>Productos Eco-amigables</h2>
-<p>Explora algunos productos sostenibles que ayudan a reducir el impacto ambiental:</p>
+    <!-- ============================================================
+         SECCIÓN 1 – GRID DE PRODUCTOS
+         (igual al catálogo tipo "Sets Completos" de la imagen)
+    ============================================================ -->
+    <div class="card fade">
+        <h2>Nuestros Productos 🌱</h2>
+        <p>Haz clic en cualquier producto para ver más detalles.</p>
 
-<table>
-<thead>
-<tr>
-<th>Producto</th>
-<th>Descripción</th>
-<th>Precio</th>
-<th>Enlace</th>
-</tr>
-</thead>
+        <div class="productos-grid">
 
-<tbody>
+            <!-- ── PRODUCTO 1 ──────────────────────────────────────
+                 href: enlace a la página de detalle dentro de tu web
+                       Ejemplo: href="producto-bombilla.html"
+                 img src: ruta a la imagen del producto
+                          Ejemplo: src="img/bombilla-solar.jpg"
+                 .prod-nombre: nombre corto que aparece bajo la imagen
+            ─────────────────────────────────────────────────────── -->
+            <a class="producto-card" href="producto-bombilla.html">
+                <img src="" alt="Bombilla LED Solar">
+                <!-- ↑ Reemplaza src="" con tu imagen -->
+                <div class="prod-nombre">Bombilla LED Solar</div>
+            </a>
 
-<tr><td>Bombilla LED Solar</td><td>Recargable con energía solar.</td><td>≈ $63 MXN</td><td><a href="https://www.mercadolibre.com.mx/3x-lamparas-led-solares-usb-para-camping-exterior-wxyx/p/MLM2032888883?pdp_filters=item_id%3AMLM5120265776&from=gshop&matt_tool=96433189&matt_word=&matt_source=google&matt_campaign_id=23459162853&matt_ad_group_id=194198311160&matt_match_type=&matt_network=g&matt_device=c&matt_creative=793026292026&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=735088283&matt_product_id=MLM2032888883-product&matt_product_partition_id=2454651996881&matt_target_id=pla-2454651996881&cq_src=google_ads&cq_cmp=23459162853&cq_net=g&cq_plt=gp&cq_med=pla&gad_source=1&gad_campaignid=23459162853&gbraid=0AAAAAoTLPrLEce5WwXCSmgZGseoTSW122&gclid=Cj0KCQjwkrzPBhCqARIsAJN460kuNzRdEcvnn7RCb0tPPyWIUsCGszsaF7jD8ObfhHAOC3t7pRKlBVsaAlU6EALw_wcB">Disponible pronto</a></td></tr>
-<tr><td>Panel Solar Portátil</td><td>Ideal para camping o uso doméstico.</td><td>≈ $357 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
-<tr><td>PowerBank solar</td><td>Ideal para exteriores</td><td>≈ $629 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
-<tr><td>Ventilador Solar Portátil</td><td>Uso exterior con energía solar.</td><td>≈ $220 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
-<tr><td>Reloj Solar Digital</td><td>Funciona con energía solar.</td><td>≈ $150 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
+            <!-- ── PRODUCTO 2 ─────────────────────────────────── -->
+            <a class="producto-card" href="producto-panel.html">
+                <img src="" alt="Panel Solar Portátil">
+                <div class="prod-nombre">Panel Solar Portátil</div>
+            </a>
 
-<tr><td>Cargador Solar USB</td><td>Carga celulares con energía solar.</td><td>≈ $180 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
-<tr><td>Lámpara Solar de Jardín</td><td>Iluminación exterior automática.</td><td>≈ $95 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
-<tr><td>Mochila con Panel Solar</td><td>Carga dispositivos al moverte.</td><td>≈ $520 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
-<tr><td>Cocina Solar Portátil</td><td>Cocina con energía solar.</td><td>≈ $890 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
-<tr><td>Linterna Solar LED</td><td>Perfecta para emergencias.</td><td>≈ $110 MXN</td><td><a href="#">Disponible pronto</a></td></tr>
+            <!-- ── PRODUCTO 3 ─────────────────────────────────── -->
+            <a class="producto-card" href="producto-powerbank.html">
+                <img src="" alt="PowerBank Solar">
+                <div class="prod-nombre">PowerBank Solar</div>
+            </a>
 
-</tbody>
-</table>
+            <!-- ── PRODUCTO 4 ─────────────────────────────────── -->
+            <a class="producto-card" href="producto-ventilador.html">
+                <img src="" alt="Ventilador Solar Portátil">
+                <div class="prod-nombre">Ventilador Solar Portátil</div>
+            </a>
 
-</div>
+            <!-- ── PRODUCTO 5 ─────────────────────────────────── -->
+            <a class="producto-card" href="producto-reloj.html">
+                <img src="" alt="Reloj Solar Digital">
+                <div class="prod-nombre">Reloj Solar Digital</div>
+            </a>
 
-</div>
+            <!-- ── PRODUCTO 6 ─────────────────────────────────── -->
+            <a class="producto-card" href="producto-cargador.html">
+                <img src="" alt="Cargador Solar USB">
+                <div class="prod-nombre">Cargador Solar USB</div>
+            </a>
+
+            <!-- ── PRODUCTO 7 ─────────────────────────────────── -->
+            <a class="producto-card" href="producto-lampara.html">
+                <img src="" alt="Lámpara Solar de Jardín">
+                <div class="prod-nombre">Lámpara Solar de Jardín</div>
+            </a>
+
+            <!-- ── PRODUCTO 8 ─────────────────────────────────── -->
+            <a class="producto-card" href="producto-mochila.html">
+                <img src="" alt="Mochila con Panel Solar">
+                <div class="prod-nombre">Mochila con Panel Solar</div>
+            </a>
+
+            <!-- ── PRODUCTO 9 ─────────────────────────────────── -->
+            <a class="producto-card" href="producto-cocina.html">
+                <img src="" alt="Cocina Solar Portátil">
+                <div class="prod-nombre">Cocina Solar Portátil</div>
+            </a>
+
+            <!-- ── PRODUCTO 10 ────────────────────────────────── -->
+            <a class="producto-card" href="producto-linterna.html">
+                <img src="" alt="Linterna Solar LED">
+                <div class="prod-nombre">Linterna Solar LED</div>
+            </a>
+
+            <!-- ═══════════════════════════════════════════════════
+                 Para AGREGAR más productos, copia el bloque
+                 de arriba y cambia href, src y el texto del nombre.
+            ═══════════════════════════════════════════════════════ -->
+
+        </div><!-- /productos-grid -->
+    </div><!-- /card -->
+
+
+    <!-- ============================================================
+         SECCIÓN 2 – DETALLE DE PRODUCTO
+         Copia este bloque en un archivo aparte, p.ej.
+         "producto-bombilla.html", y personaliza cada campo.
+         Puedes eliminar esta sección de productos.html si no la usas.
+    ============================================================ -->
+    <div class="card fade" id="detalle-producto">
+        <div class="detalle-wrap">
+
+            <!-- IMAGEN PRINCIPAL -->
+            <div class="detalle-img">
+                <img src="" alt="Nombre del producto">
+                <!-- ↑ Cambia src="" por la imagen del producto      -->
+                <!-- ↑ Cambia alt="" por el nombre del producto       -->
+            </div>
+
+            <!-- INFORMACIÓN -->
+            <div class="detalle-info">
+                <h2>Nombre del Producto</h2>
+                <!-- ↑ Cambia por el nombre real del producto        -->
+
+                <div class="precio">≈ $000 MXN</div>
+                <!-- ↑ Cambia por el precio real                     -->
+
+                <p>
+                    Descripción detallada del producto. Explica para
+                    qué sirve, cómo funciona, y cuál es su ventaja
+                    ecológica principal.
+                    <!-- ↑ Cambia por la descripción real            -->
+                </p>
+
+                <ul>
+                    <li>✅ Característica 1</li>
+                    <li>✅ Característica 2</li>
+                    <li>✅ Característica 3</li>
+                    <!-- ↑ Agrega o quita bullet points              -->
+                </ul>
+
+                <a class="btn-comprar" href="#">🛒 Comprar ahora</a>
+                <!-- ↑ Cambia href="#" por el enlace de tu carrito   -->
+            </div>
+
+        </div>
+    </div><!-- /detalle-producto -->
+
+</div><!-- /container -->
 
 <footer>
-<h2>Contacto Eco Wave</h2>
-<p>🌍 contacto@ecowave.org</p>
-<p>📞 +57 300 608 7138</p>
-<p>© 2025 ECO WAVE</p>
+    <h2>Contacto Eco Wave</h2>
+    <p>🌍 contacto@ecowave.org</p>
+    <p>📞 +57 300 608 7138</p>
+    <p>© 2025 ECO WAVE</p>
 </footer>
 
 <script>
-
 /* ANIMACIÓN SCROLL */
 const elementos = document.querySelectorAll('.fade');
-
 function mostrar(){
     elementos.forEach(el => {
         if(el.getBoundingClientRect().top < window.innerHeight - 100){
@@ -225,30 +399,14 @@ function mostrar(){
         }
     });
 }
-
 window.addEventListener('scroll', mostrar);
 window.addEventListener('load', mostrar);
 
 /* NAV GLOW */
 document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('mouseenter', () => {
-        link.classList.add('nav-glow');
-    });
-    link.addEventListener('mouseleave', () => {
-        link.classList.remove('nav-glow');
-    });
+    link.addEventListener('mouseenter', () => link.classList.add('nav-glow'));
+    link.addEventListener('mouseleave', () => link.classList.remove('nav-glow'));
 });
-
-/* ✨ GLOW TABLA */
-document.querySelectorAll("tbody tr").forEach(fila => {
-    fila.addEventListener("mouseenter", () => {
-        fila.classList.add("row-glow");
-    });
-    fila.addEventListener("mouseleave", () => {
-        fila.classList.remove("row-glow");
-    });
-});
-
 </script>
 
 </body>
