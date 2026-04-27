@@ -99,7 +99,6 @@ nav a.nav-glow {
 ======================== */
 .productos-grid{
     display:grid;
-    /* Columnas adaptables: mínimo 180px, máximo fracción igual */
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap:18px;
     margin-top:20px;
@@ -128,10 +127,6 @@ nav a.nav-glow {
     aspect-ratio:1/1;
     object-fit:cover;
     display:block;
-    /* ──────────────────────────────────────────────
-       ↑ REEMPLAZA src="" con la ruta de tu imagen.
-       Ejemplo: src="img/bombilla-solar.jpg"
-    ────────────────────────────────────────────── */
 }
 .producto-card .prod-nombre{
     padding:10px 12px;
@@ -140,76 +135,6 @@ nav a.nav-glow {
     text-align:center;
     color:var(--accent);
     line-height:1.3;
-}
-
-/* ========================
-   PÁGINA DE DETALLE
-======================== */
-.detalle-wrap{
-    display:flex;
-    flex-wrap:wrap;
-    gap:30px;
-    align-items:flex-start;
-}
-.detalle-img{
-    flex:1 1 260px;
-    max-width:420px;
-}
-.detalle-img img{
-    width:100%;
-    border-radius:12px;
-    box-shadow:0 0 20px rgba(0,240,255,0.3);
-    /* ──────────────────────────────────────────────
-       ↑ Imagen principal del producto en detalle.
-       Cambia src="" por la ruta de tu imagen.
-    ────────────────────────────────────────────── */
-}
-.detalle-info{
-    flex:1 1 280px;
-}
-.detalle-info h2{
-    color:var(--accent);
-    font-size:1.6rem;
-    margin-top:0;
-    text-shadow:0 0 8px var(--accent);
-}
-.detalle-info .precio{
-    font-size:1.4rem;
-    font-weight:700;
-    color:var(--accent2);
-    margin:10px 0;
-}
-.detalle-info p{
-    line-height:1.7;
-    color:#cce8f8;
-    /* ↑ Aquí va la descripción larga del producto */
-}
-.detalle-info ul{
-    padding-left:18px;
-    color:#bce0f0;
-    line-height:1.9;
-    /* ↑ Lista de características / bullet points */
-}
-.btn-comprar{
-    display:inline-block;
-    margin-top:18px;
-    padding:12px 28px;
-    background:linear-gradient(90deg,var(--accent),var(--accent2));
-    color:#000;
-    font-weight:700;
-    border-radius:10px;
-    text-decoration:none;
-    font-size:1rem;
-    transition:.3s;
-    box-shadow:0 0 14px rgba(0,240,255,0.4);
-    /* ──────────────────────────────────────────────
-       ↑ Cambia href="#" por el enlace de compra
-         en tu propia web / carrito.
-    ────────────────────────────────────────────── */
-}
-.btn-comprar:hover{
-    box-shadow:0 0 25px var(--accent);
-    transform:scale(1.04);
 }
 
 /* FOOTER */
@@ -229,7 +154,6 @@ footer h2{color:var(--accent);}
 /* RESPONSIVE EXTRA */
 @media(max-width:500px){
     .productos-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));}
-    .detalle-info h2{font-size:1.2rem;}
 }
 </style>
 </head>
@@ -249,136 +173,64 @@ footer h2{color:var(--accent);}
 
 <div class="container">
 
-    <!-- ============================================================
-         SECCIÓN 1 – GRID DE PRODUCTOS
-         (igual al catálogo tipo "Sets Completos" de la imagen)
-    ============================================================ -->
     <div class="card fade">
         <h2>Nuestros Productos 🌱</h2>
         <p>Haz clic en cualquier producto para ver más detalles.</p>
 
         <div class="productos-grid">
 
-            <!-- ── PRODUCTO 1 ──────────────────────────────────────
-                 href: enlace a la página de detalle dentro de tu web
-                       Ejemplo: href="producto-bombilla.html"
-                 img src: ruta a la imagen del producto
-                          Ejemplo: src="img/bombilla-solar.jpg"
-                 .prod-nombre: nombre corto que aparece bajo la imagen
-            ─────────────────────────────────────────────────────── -->
             <a class="producto-card" href="producto-bombilla.html">
                 <img src="" alt="Bombilla LED Solar">
-                <!-- ↑ Reemplaza src="" con tu imagen -->
                 <div class="prod-nombre">Bombilla LED Solar</div>
             </a>
 
-            <!-- ── PRODUCTO 2 ─────────────────────────────────── -->
             <a class="producto-card" href="producto-panel.html">
                 <img src="" alt="Panel Solar Portátil">
                 <div class="prod-nombre">Panel Solar Portátil</div>
             </a>
 
-            <!-- ── PRODUCTO 3 ─────────────────────────────────── -->
             <a class="producto-card" href="producto-powerbank.html">
                 <img src="" alt="PowerBank Solar">
                 <div class="prod-nombre">PowerBank Solar</div>
             </a>
 
-            <!-- ── PRODUCTO 4 ─────────────────────────────────── -->
             <a class="producto-card" href="producto-ventilador.html">
                 <img src="" alt="Ventilador Solar Portátil">
                 <div class="prod-nombre">Ventilador Solar Portátil</div>
             </a>
 
-            <!-- ── PRODUCTO 5 ─────────────────────────────────── -->
             <a class="producto-card" href="producto-reloj.html">
                 <img src="" alt="Reloj Solar Digital">
                 <div class="prod-nombre">Reloj Solar Digital</div>
             </a>
 
-            <!-- ── PRODUCTO 6 ─────────────────────────────────── -->
             <a class="producto-card" href="producto-cargador.html">
                 <img src="" alt="Cargador Solar USB">
                 <div class="prod-nombre">Cargador Solar USB</div>
             </a>
 
-            <!-- ── PRODUCTO 7 ─────────────────────────────────── -->
             <a class="producto-card" href="producto-lampara.html">
                 <img src="" alt="Lámpara Solar de Jardín">
                 <div class="prod-nombre">Lámpara Solar de Jardín</div>
             </a>
 
-            <!-- ── PRODUCTO 8 ─────────────────────────────────── -->
             <a class="producto-card" href="producto-mochila.html">
                 <img src="" alt="Mochila con Panel Solar">
                 <div class="prod-nombre">Mochila con Panel Solar</div>
             </a>
 
-            <!-- ── PRODUCTO 9 ─────────────────────────────────── -->
             <a class="producto-card" href="producto-cocina.html">
                 <img src="" alt="Cocina Solar Portátil">
                 <div class="prod-nombre">Cocina Solar Portátil</div>
             </a>
 
-            <!-- ── PRODUCTO 10 ────────────────────────────────── -->
             <a class="producto-card" href="producto-linterna.html">
                 <img src="" alt="Linterna Solar LED">
                 <div class="prod-nombre">Linterna Solar LED</div>
             </a>
 
-            <!-- ═══════════════════════════════════════════════════
-                 Para AGREGAR más productos, copia el bloque
-                 de arriba y cambia href, src y el texto del nombre.
-            ═══════════════════════════════════════════════════════ -->
-
         </div><!-- /productos-grid -->
     </div><!-- /card -->
-
-
-    <!-- ============================================================
-         SECCIÓN 2 – DETALLE DE PRODUCTO
-         Copia este bloque en un archivo aparte, p.ej.
-         "producto-bombilla.html", y personaliza cada campo.
-         Puedes eliminar esta sección de productos.html si no la usas.
-    ============================================================ -->
-    <div class="card fade" id="detalle-producto">
-        <div class="detalle-wrap">
-
-            <!-- IMAGEN PRINCIPAL -->
-            <div class="detalle-img">
-                <img src="" alt="Nombre del producto">
-                <!-- ↑ Cambia src="" por la imagen del producto      -->
-                <!-- ↑ Cambia alt="" por el nombre del producto       -->
-            </div>
-
-            <!-- INFORMACIÓN -->
-            <div class="detalle-info">
-                <h2>Nombre del Producto</h2>
-                <!-- ↑ Cambia por el nombre real del producto        -->
-
-                <div class="precio">≈ $000 MXN</div>
-                <!-- ↑ Cambia por el precio real                     -->
-
-                <p>
-                    Descripción detallada del producto. Explica para
-                    qué sirve, cómo funciona, y cuál es su ventaja
-                    ecológica principal.
-                    <!-- ↑ Cambia por la descripción real            -->
-                </p>
-
-                <ul>
-                    <li>✅ Característica 1</li>
-                    <li>✅ Característica 2</li>
-                    <li>✅ Característica 3</li>
-                    <!-- ↑ Agrega o quita bullet points              -->
-                </ul>
-
-                <a class="btn-comprar" href="#">🛒 Comprar ahora</a>
-                <!-- ↑ Cambia href="#" por el enlace de tu carrito   -->
-            </div>
-
-        </div>
-    </div><!-- /detalle-producto -->
 
 </div><!-- /container -->
 
