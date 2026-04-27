@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECO WAVE – Nombre del Producto</title>
+<!-- ↑ Cambia "Nombre del Producto" por el nombre real -->
+
+<style>
+:root{
+    --accent:#00F0FF;
+    --accent2:#00ff9d;
+    --card-bg: rgba(20,30,80,0.65);
+    --glass: rgba(0,0,0,0.45);
+    --text:#EAF4FF;
+}
+
+body{
+    margin:0;
+    font-family:Segoe UI;
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    background:
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')
+    no-repeat center/cover fixed;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#0a1f44,#0f8aa6);
+    text-align:center;
+    padding:30px;
+    box-shadow:0 0 25px rgba(0,240,255,0.3);
+}
+header h1{
+    color:var(--accent);
+    font-size:2.5rem;
+    text-shadow:0 0 10px var(--accent);
+}
+header p{ color:#bdefff; }
+
+/* NAV */
+nav{
+    background:var(--glass);
+    text-align:center;
+    padding:12px;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+nav a{
+    color:white;
+    margin:10px;
+    text-decoration:none;
+    padding:8px 14px;
+    border-radius:8px;
+    display:inline-block;
+    transition:.3s;
+}
+nav a:hover{
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    color:black;
+    box-shadow:0 0 15px var(--accent);
+}
+nav a.nav-glow{
+    box-shadow:0 0 8px #5bc8f5,0 0 18px #5bc8f588,0 0 32px #5bc8f544;
+    background:rgba(91,200,245,0.15);
+    color:#a8e8ff;
+}
+
+/* CONTENEDOR */
+.container{
+    flex:1;
+    padding:25px;
+    margin:20px;
+}
+
+/* CARD */
+.card{
+    background:var(--card-bg);
+    padding:28px 32px;
+    border-radius:15px;
+    backdrop-filter:blur(10px);
+    margin-bottom:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* ── BREADCRUMB (migas de pan) ── */
+.breadcrumb{
+    font-size:0.82rem;
+    margin-bottom:22px;
+    color:#7ecfea;
+}
+.breadcrumb a{
+    color:#7ecfea;
+    text-decoration:none;
+}
+.breadcrumb a:hover{ color:var(--accent); }
+.breadcrumb span{ color:#ccc; margin:0 6px; }
+
+/* ── LAYOUT DETALLE ── */
+.detalle-wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:36px;
+    align-items:flex-start;
+}
+
+/* IMAGEN */
+.detalle-img{
+    flex:1 1 280px;
+    max-width:480px;
+}
+.detalle-img img{
+    width:100%;
+    border-radius:14px;
+    box-shadow:0 0 28px rgba(0,240,255,0.25);
+    display:block;
+    /*
+    ══════════════════════════════════════════
+    ↑ Cambia src="" por la imagen del producto
+      Ejemplo: src="img/bombilla-solar.jpg"
+    ══════════════════════════════════════════
+    */
+}
+
+/* INFO */
+.detalle-info{
+    flex:1 1 280px;
+}
+.detalle-info h2{
+    color:var(--accent);
+    font-size:1.75rem;
+    margin:0 0 4px;
+    text-shadow:0 0 8px var(--accent);
+    line-height:1.25;
+    /*
+    ══════════════════════════════════════════
+    ↑ Escribe aquí el nombre del producto
+    ══════════════════════════════════════════
+    */
+}
+.subtitulo{
+    font-size:0.85rem;
+    color:#88d8f0;
+    margin-bottom:14px;
+    letter-spacing:.04em;
+    /*
+    ↑ Ej: "Set #77247 | Speed Champions"
+    */
+}
+.precio{
+    font-size:1.6rem;
+    font-weight:700;
+    color:var(--accent2);
+    margin:0 0 4px;
+}
+.precio-nota{
+    font-size:0.75rem;
+    color:#aaa;
+    margin-bottom:18px;
+    /* ↑ Texto pequeño como "IMPUESTOS INCLUIDOS." */
+}
+
+/* CANTIDAD + BOTONES */
+.cantidad-wrap{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+}
+.qty-btn{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    border:1.5px solid var(--accent);
+    background:transparent;
+    color:var(--accent);
+    font-size:1.2rem;
+    cursor:pointer;
+    transition:.25s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.qty-btn:hover{ background:var(--accent); color:#000; }
+.qty-num{
+    font-size:1.1rem;
+    font-weight:600;
+    min-width:24px;
+    text-align:center;
+}
+
+.btn-carrito,
+.btn-comprar{
+    display:block;
+    width:100%;
+    padding:13px 0;
+    border:none;
+    border-radius:10px;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+    text-align:center;
+    text-decoration:none;
+    transition:.3s;
+    margin-bottom:10px;
+    /*
+    ══════════════════════════════════════════
+    ↑ Cambia href="#" por el enlace real de
+      tu carrito o página de pago.
+    ══════════════════════════════════════════
+    */
+}
+.btn-carrito{
+    background:transparent;
+    border:2px solid var(--accent);
+    color:var(--accent);
+}
+.btn-carrito:hover{
+    background:var(--accent);
+    color:#000;
+    box-shadow:0 0 18px var(--accent);
+}
+.btn-comprar{
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    color:#000;
+}
+.btn-comprar:hover{
+    box-shadow:0 0 22px var(--accent);
+    transform:scale(1.02);
+}
+
+/* DESCRIPCIÓN Y BULLETS */
+.desc-titulo{
+    font-size:0.95rem;
+    font-weight:700;
+    color:var(--accent);
+    margin:18px 0 6px;
+    border-bottom:1px solid rgba(0,240,255,0.2);
+    padding-bottom:4px;
+}
+.detalle-info p{
+    line-height:1.75;
+    color:#cce8f8;
+    margin:0 0 10px;
+    font-size:0.93rem;
+    /*
+    ↑ Descripción principal del producto
+    */
+}
+.detalle-info ul{
+    padding-left:18px;
+    margin:0;
+    color:#bce0f0;
+    line-height:2;
+    font-size:0.9rem;
+    /*
+    ↑ Características / bullet points
+    */
+}
+.nota-italica{
+    margin-top:18px;
+    font-style:italic;
+    font-size:0.82rem;
+    color:#88b8cc;
+    /*
+    ↑ Texto pequeño al final, ej: "Compra seguro..."
+    */
+}
+
+/* VOLVER */
+.btn-volver{
+    display:inline-block;
+    margin-bottom:20px;
+    color:var(--accent);
+    text-decoration:none;
+    font-size:0.9rem;
+    transition:.2s;
+}
+.btn-volver:hover{ text-shadow:0 0 8px var(--accent); }
+
+/* FOOTER */
+footer{
+    background:#03142b;
+    text-align:center;
+    padding:30px 20px;
+    color:#cfefff;
+    margin-top:auto;
+}
+footer h2{ color:var(--accent); }
+
+/* ANIMACIÓN */
+.fade{ opacity:0; transform:translateY(40px); }
+.fade.show{ opacity:1; transform:translateY(0); transition:all 1s; }
+
+/* RESPONSIVE */
+@media(max-width:600px){
+    .detalle-info h2{ font-size:1.3rem; }
+    .precio{ font-size:1.3rem; }
+    .container{ margin:10px; padding:14px; }
+    .card{ padding:18px; }
+}
+</style>
+</head>
+<body>
+
+<header class="fade">
+    <h1>ECO WAVE 🌊</h1>
+    <p>Innovación, energía y sostenibilidad para un futuro verde</p>
+</header>
+
+<nav class="fade">
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="productos.html">Productos</a>
+    <a href="foda.html">FODA</a>
+</nav>
+
+<div class="container">
+<div class="card fade">
+
+    <!-- MIGAS DE PAN -->
+    <div class="breadcrumb">
+        <a href="productos.html">← Productos</a>
+        <span>/</span>
+        Nombre del Producto
+        <!-- ↑ Cambia "Nombre del Producto" por el nombre real -->
+    </div>
+
+    <div class="detalle-wrap">
+
+        <!-- ════════════════════════════
+             IMAGEN PRINCIPAL
+        ════════════════════════════ -->
+        <div class="detalle-img">
+            <img src="" alt="Nombre del producto">
+            <!--
+            ↑ src=""  → ruta de tu imagen, ej: "img/bombilla-solar.jpg"
+            ↑ alt=""  → nombre descriptivo del producto
+            -->
+        </div>
+
+        <!-- ════════════════════════════
+             INFORMACIÓN DEL PRODUCTO
+        ════════════════════════════ -->
+        <div class="detalle-info">
+
+            <h2>NOMBRE DEL PRODUCTO</h2>
+            <!-- ↑ Escribe el nombre en MAYÚSCULAS o como prefieras -->
+
+            <div class="subtitulo">Referencia: #000 | Categoría</div>
+            <!-- ↑ Ej: "Set #77247 | Speed Champions | ECO WAVE"   -->
+
+            <div class="precio">≈ $000 MXN</div>
+            <!-- ↑ Precio real del producto                         -->
+
+            <div class="precio-nota">IMPUESTOS INCLUIDOS.</div>
+
+            <!-- SELECTOR DE CANTIDAD -->
+            <div class="cantidad-wrap">
+                <button class="qty-btn" onclick="cambiarCantidad(-1)">−</button>
+                <span class="qty-num" id="cantidad">1</span>
+                <button class="qty-btn" onclick="cambiarCantidad(1)">+</button>
+            </div>
+
+            <!-- BOTONES DE COMPRA -->
+            <a class="btn-carrito" href="#">
+                🛒 Agregar al carrito
+            </a>
+            <!-- ↑ Cambia href="#" por el enlace de tu carrito      -->
+
+            <a class="btn-comprar" href="#">
+                COMPRAR AHORA
+            </a>
+            <!-- ↑ Cambia href="#" por el enlace de pago directo    -->
+
+            <!-- DESCRIPCIÓN -->
+            <div class="desc-titulo">Descripción del producto</div>
+            <p>
+                Descripción detallada del producto. Explica para qué sirve,
+                cómo funciona y cuál es su ventaja ecológica principal.
+                <!-- ↑ Reemplaza con tu descripción real            -->
+            </p>
+
+            <!-- CARACTERÍSTICAS -->
+            <ul>
+                <li>✅ Característica o beneficio 1</li>
+                <li>🎁 Característica o beneficio 2</li>
+                <li>🚚 Envío a toda la República Mexicana</li>
+                <li>📦 Disponible en tienda</li>
+                <!-- ↑ Agrega, quita o edita los bullet points      -->
+            </ul>
+
+            <p class="nota-italica">
+                En ECO WAVE creemos en un futuro sostenible.
+                Compra seguro, cuida el planeta.
+                <!-- ↑ Cambia por tu mensaje de cierre              -->
+            </p>
+
+        </div><!-- /detalle-info -->
+    </div><!-- /detalle-wrap -->
+
+</div><!-- /card -->
+</div><!-- /container -->
+
+<footer>
+    <h2>Contacto Eco Wave</h2>
+    <p>🌍 contacto@ecowave.org</p>
+    <p>📞 +57 300 608 7138</p>
+    <p>© 2025 ECO WAVE</p>
+</footer>
+
+<script>
+/* ANIMACIÓN SCROLL */
+const elementos = document.querySelectorAll('.fade');
+function mostrar(){
+    elementos.forEach(el => {
+        if(el.getBoundingClientRect().top < window.innerHeight - 100)
+            el.classList.add('show');
+    });
+}
+window.addEventListener('scroll', mostrar);
+window.addEventListener('load', mostrar);
+
+/* NAV GLOW */
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('mouseenter', () => link.classList.add('nav-glow'));
+    link.addEventListener('mouseleave', () => link.classList.remove('nav-glow'));
+});
+
+/* SELECTOR DE CANTIDAD */
+function cambiarCantidad(delta){
+    const el = document.getElementById('cantidad');
+    let val = parseInt(el.textContent) + delta;
+    if(val < 1) val = 1;
+    el.textContent = val;
+}
+</script>
+
+</body>
+</html>
