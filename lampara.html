@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ECO WAVE – Nombre del Producto</title>
-<!-- ↑ Cambia "Nombre del Producto" por el nombre real -->
+<title>ECO WAVE – Lampara de jardin</title>
 
 <style>
 :root{
@@ -28,7 +27,6 @@ body{
     no-repeat center/cover fixed;
 }
 
-/* HEADER */
 header{
     background:linear-gradient(135deg,#0a1f44,#0f8aa6);
     text-align:center;
@@ -42,7 +40,6 @@ header h1{
 }
 header p{ color:#bdefff; }
 
-/* NAV */
 nav{
     background:var(--glass);
     text-align:center;
@@ -71,14 +68,12 @@ nav a.nav-glow{
     color:#a8e8ff;
 }
 
-/* CONTENEDOR */
 .container{
     flex:1;
     padding:25px;
     margin:20px;
 }
 
-/* CARD */
 .card{
     background:var(--card-bg);
     padding:28px 32px;
@@ -88,7 +83,6 @@ nav a.nav-glow{
     box-shadow:0 8px 25px rgba(0,0,0,0.3);
 }
 
-/* ── BREADCRUMB (migas de pan) ── */
 .breadcrumb{
     font-size:0.82rem;
     margin-bottom:22px;
@@ -101,7 +95,6 @@ nav a.nav-glow{
 .breadcrumb a:hover{ color:var(--accent); }
 .breadcrumb span{ color:#ccc; margin:0 6px; }
 
-/* ── LAYOUT DETALLE ── */
 .detalle-wrap{
     display:flex;
     flex-wrap:wrap;
@@ -109,7 +102,6 @@ nav a.nav-glow{
     align-items:flex-start;
 }
 
-/* IMAGEN */
 .detalle-img{
     flex:1 1 280px;
     max-width:480px;
@@ -119,15 +111,8 @@ nav a.nav-glow{
     border-radius:14px;
     box-shadow:0 0 28px rgba(0,240,255,0.25);
     display:block;
-    /*
-    ══════════════════════════════════════════
-    ↑ Cambia src="" por la imagen del producto
-      Ejemplo: src="img/bombilla-solar.jpg"
-    ══════════════════════════════════════════
-    */
 }
 
-/* INFO */
 .detalle-info{
     flex:1 1 280px;
 }
@@ -137,20 +122,12 @@ nav a.nav-glow{
     margin:0 0 4px;
     text-shadow:0 0 8px var(--accent);
     line-height:1.25;
-    /*
-    ══════════════════════════════════════════
-    ↑ Escribe aquí el nombre del producto
-    ══════════════════════════════════════════
-    */
 }
 .subtitulo{
     font-size:0.85rem;
     color:#88d8f0;
     margin-bottom:14px;
     letter-spacing:.04em;
-    /*
-    ↑ Ej: "Set #77247 | Speed Champions"
-    */
 }
 .precio{
     font-size:1.6rem;
@@ -162,10 +139,8 @@ nav a.nav-glow{
     font-size:0.75rem;
     color:#aaa;
     margin-bottom:18px;
-    /* ↑ Texto pequeño como "IMPUESTOS INCLUIDOS." */
 }
 
-/* CANTIDAD + BOTONES */
 .cantidad-wrap{
     display:flex;
     align-items:center;
@@ -208,12 +183,6 @@ nav a.nav-glow{
     text-decoration:none;
     transition:.3s;
     margin-bottom:10px;
-    /*
-    ══════════════════════════════════════════
-    ↑ Cambia href="#" por el enlace real de
-      tu carrito o página de pago.
-    ══════════════════════════════════════════
-    */
 }
 .btn-carrito{
     background:transparent;
@@ -234,7 +203,6 @@ nav a.nav-glow{
     transform:scale(1.02);
 }
 
-/* DESCRIPCIÓN Y BULLETS */
 .desc-titulo{
     font-size:0.95rem;
     font-weight:700;
@@ -248,9 +216,6 @@ nav a.nav-glow{
     color:#cce8f8;
     margin:0 0 10px;
     font-size:0.93rem;
-    /*
-    ↑ Descripción principal del producto
-    */
 }
 .detalle-info ul{
     padding-left:18px;
@@ -258,21 +223,14 @@ nav a.nav-glow{
     color:#bce0f0;
     line-height:2;
     font-size:0.9rem;
-    /*
-    ↑ Características / bullet points
-    */
 }
 .nota-italica{
     margin-top:18px;
     font-style:italic;
     font-size:0.82rem;
     color:#88b8cc;
-    /*
-    ↑ Texto pequeño al final, ej: "Compra seguro..."
-    */
 }
 
-/* VOLVER */
 .btn-volver{
     display:inline-block;
     margin-bottom:20px;
@@ -283,7 +241,6 @@ nav a.nav-glow{
 }
 .btn-volver:hover{ text-shadow:0 0 8px var(--accent); }
 
-/* FOOTER */
 footer{
     background:#03142b;
     text-align:center;
@@ -293,11 +250,9 @@ footer{
 }
 footer h2{ color:var(--accent); }
 
-/* ANIMACIÓN */
 .fade{ opacity:0; transform:translateY(40px); }
 .fade.show{ opacity:1; transform:translateY(0); transition:all 1s; }
 
-/* RESPONSIVE */
 @media(max-width:600px){
     .detalle-info h2{ font-size:1.3rem; }
     .precio{ font-size:1.3rem; }
@@ -323,56 +278,37 @@ footer h2{ color:var(--accent); }
 <div class="container">
 <div class="card fade">
 
-    <!-- MIGAS DE PAN -->
     <div class="breadcrumb">
         <a href="productos.html">← Productos</a>
         <span>/</span>
-      Lámpara Solar LED Luz Solar Jardín Exterior Impermeable
-        <!-- ↑ Cambia "Nombre del Producto" por el nombre real -->
+        Lámpara Solar LED Luz Solar Jardín Exterior Impermeable
     </div>
 
     <div class="detalle-wrap">
 
-        <!-- ════════════════════════════
-             IMAGEN PRINCIPAL
-        ════════════════════════════ -->
         <div class="detalle-img">
             <img src="jardin.png" alt="Lámpara Solar LED Luz Solar Jardín Exterior Impermeable">
-            <!--
-            ↑ src=""  → ruta de tu imagen, ej: "img/bombilla-solar.jpg"
-            ↑ alt=""  → nombre descriptivo del producto
-            -->
         </div>
 
-        <!-- ════════════════════════════
-             INFORMACIÓN DEL PRODUCTO
-        ════════════════════════════ -->
         <div class="detalle-info">
 
             <h2>Lámpara Solar LED Luz Solar Jardín Exterior Impermeable</h2>
-            <!-- ↑ Escribe el nombre en MAYÚSCULAS o como prefieras -->
 
             <div class="subtitulo"> Categoría: Hogar</div>
-            <!-- ↑ Ej: "Set #77247 | Speed Champions | ECO WAVE"   -->
 
             <div class="precio">≈ 239.52 MXN</div>
-            <!-- ↑ Precio real del producto                         -->
 
             <div class="precio-nota">IMPUESTOS INCLUIDOS.</div>
             
             <a class="btn-comprar" href="https://www.mercadolibre.com.mx/goodea-4pcs-lampara-solar-led-luz-solar-jardin-exterior-impermeable-lampara-de-cesped-decoraciones-lamparas-para-jardin-patio-paisaje-pasarela/p/MLM48602563?pdp_filters=item_id%3AMLM3643660106&from=gshop&matt_tool=62150828&matt_word=&matt_source=google&matt_campaign_id=23459159895&matt_ad_group_id=190396563006&matt_match_type=&matt_network=g&matt_device=c&matt_creative=793026288162&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=735120154&matt_product_id=MLM48602563-product&matt_product_partition_id=2387145049342&matt_target_id=pla-2387145049342&cq_src=google_ads&cq_cmp=23459159895&cq_net=g&cq_plt=gp&cq_med=pla&gad_source=1&gad_campaignid=23459159895&gbraid=0AAAAAoTLPrKDVZqiTmXzuJVu1gA_Aw9UZ&gclid=Cj0KCQjwkrzPBhCqARIsAJN460kjXer-zrLP6ln8C0aSaPgEj_6icIFU2nJjoWuFnFjXwsBFdcusmWMaAs4fEALw_wcB">
                 COMPRAR AHORA
             </a>
-            <!-- ↑ Cambia href="#" por el enlace de pago directo    -->
 
-            <!-- DESCRIPCIÓN -->
             <div class="desc-titulo">Lámpara Solar LED Luz Solar Jardín Exterior Impermeable</div>
             <p>
 Lámpara Solar LED Luz Solar Jardín Exterior Impermeable
-              <!-- ↑ Reemplaza con tu descripción real            -->
             </p>
 
-            <!-- CARACTERÍSTICAS -->
             <ul>
                 <li>🚚 Envío a toda la República Mexicana</li>
             </ul>
@@ -380,14 +316,13 @@ Lámpara Solar LED Luz Solar Jardín Exterior Impermeable
             <p class="nota-italica">
                 En ECO WAVE creemos en un futuro sostenible.
                 Compra seguro, cuida el planeta.
-                <!-- ↑ Cambia por tu mensaje de cierre              -->
             </p>
 
-        </div><!-- /detalle-info -->
-    </div><!-- /detalle-wrap -->
+        </div>
+    </div>
 
-</div><!-- /card -->
-</div><!-- /container -->
+</div>
+</div>
 
 <footer>
     <h2>Contacto Eco Wave</h2>
@@ -397,7 +332,6 @@ Lámpara Solar LED Luz Solar Jardín Exterior Impermeable
 </footer>
 
 <script>
-/* ANIMACIÓN SCROLL */
 const elementos = document.querySelectorAll('.fade');
 function mostrar(){
     elementos.forEach(el => {
@@ -408,13 +342,11 @@ function mostrar(){
 window.addEventListener('scroll', mostrar);
 window.addEventListener('load', mostrar);
 
-/* NAV GLOW */
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('mouseenter', () => link.classList.add('nav-glow'));
     link.addEventListener('mouseleave', () => link.classList.remove('nav-glow'));
 });
 
-/* SELECTOR DE CANTIDAD */
 function cambiarCantidad(delta){
     const el = document.getElementById('cantidad');
     let val = parseInt(el.textContent) + delta;
